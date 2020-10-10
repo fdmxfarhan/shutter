@@ -1,0 +1,55 @@
+extends ../layout
+
+block styles
+    link(rel="stylesheet", href="/stylesheets/order.css")
+    //- script(src="https://www.google.com/recaptcha/api.js?render=_reCAPTCHA_site_key")
+block content
+    .order-area
+        .translation-panel
+            .line
+            .levels    
+                .level.active 
+                    .number ۱
+                    .text اطلاعات فردی
+                .level.second.active 
+                    .number ۲
+                    .text اطلاعات سفارش
+                .level.third.active 
+                    .number ۳
+                    .text آپلود
+                .level.fourth.active 
+                    .number ۴
+                    .text تکمیل فرایند
+            .register-part
+                .finish
+                    h1.seccuss
+                        i.fa.fa-check-circle
+                        | سفارش ترجمه با موفقیت ثبت شد.
+                    p با تشکر از شما،
+                    p همکاران ما به محض اتمام فرایند قیمت گذاری، با ایمیل شما مکاتبه خواهند کرد.
+                    p لینک پرداخت همراه با ایمیل ارسال خواهد شد.
+                    p با مراجعه به 
+                        a.inline-link(href="/blog/home") این صفحه 
+                        | می توانید مطالب بلاگ شاتر رو بخونید.
+                    a(href="/")
+                        img(src="/images/logo.png")
+        .sidebar-area
+            .order-sidebar
+                h1.title 
+                    i.fa.fa-info
+                    | راهنما
+                p
+                    | درخواست ترجمه شما ثبت گردید.
+            .order-sidebar
+                h1.title گزینه ها
+                a.side-link#calculate-words
+                    i.fa.fa-calculator
+                    | محاسبه تخمینی کلمات
+                a.side-link#prices
+                    i.fa.fa-dollar
+                    | تعرفه ها
+                a.side-link#calculate-price.last 
+                    i.fa.fa-calculator
+                    | محاسبه تخمینی قیمت
+    include ./popups
+    script(src="/javascripts/order.js")

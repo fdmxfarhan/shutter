@@ -1,0 +1,72 @@
+.translate-modal#translate-modal
+    .translation-panel
+        span.close#translateclose &times;
+        .line
+        .levels    
+            .level.active 
+                .number ۱
+                .text اطلاعات فردی
+            .level.second
+                .number ۲
+                .text آپلود فایل 
+            .level.third
+                .number ۳
+                .text تایید سفارش و پرداخت
+            .level.fourth
+                .number ۴
+                .text دریافت ترجمه
+        .register-part
+            //- h1.title
+            //-     i.fa.fa-user-plus.icon
+            //-     | ثبت نام
+            a.registered(href="/user/login") قبلا عضو شاتر بوده اید؟
+            form(action="/user/register" method="POST" value=)
+                .right
+                    i.fa.fa-user.icon
+                    input.textinput(type="text" name="fullname" placeholder="نام و نام خانوادگی")
+                    br
+                    i.fa.fa-envelope.icon
+                    input.textinput(type="email" name="username" placeholder="ایمیل")
+                    br
+                    i.fa.fa-phone.icon
+                    input.textinput(type="number" name="phone" placeholder="تلفن")
+                .left
+                    i.fa.fa-key.icon
+                    input.textinput(type="password" name="password" placeholder="کلمه عبور")
+                    br
+                    i.fa.fa-check.icon
+                    input.textinput(type="password" name="password2" placeholder="تکرار کلمه عبور")
+                    br
+                    a.submit#second-level مرحله بعدی
+                        i.fa.fa-chevron-left.left-icon
+        .upload-part
+            form(action="/user/register" method="POST" value=)
+                .right
+                    i.fa.fa-caret-left.icon
+                    label(for="baseLanguage") زبان مبداء: 
+                    select.textinput(name="baseLanguage")
+                        option(value="eng") انگلیسی (English)
+                        option(value="fa") فارسی (Persion)
+                        option(value="fre") فرانسوی (French)
+                    br
+                    i.fa.fa-caret-right.icon
+                    label(for="destLanguage") زبان مقصد: 
+                    select.textinput(name="destLanguage")
+                        option(value="eng") انگلیسی (English)
+                        option(value="fa") فارسی (Persion)
+                        option(value="fre") فرانسوی (French)
+                    br
+                    i.fas.fa-stopwatch.icon
+                    input.textinput(type="text" name="time" placeholder="مدت زمان پیشنهادی")
+                    a.submit#return-first
+                        i.fa.fa-chevron-right.right-icon
+                        | بازگشت
+                .left
+                    i.fa.fa-cloud-upload-alt.icon
+                    label(for="myFile") انتخاب فایل: 
+                    input.custom-file-input(type="file" name="myFile" required) 
+                    br
+                    textarea(name="description" placeholder="توضیحات بیشتر")
+                    br
+                    input.submit(type="submit" value="مرحله بعدی") 
+

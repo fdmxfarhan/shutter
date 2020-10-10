@@ -1,0 +1,1069 @@
+@font-face {
+    font-family:'iransans';
+    src:url('IRANSans.ttf');
+}
+
+html{
+    scroll-behavior: smooth;
+}
+:root {
+    --color1: #388af5;
+    --hover: #F06543;
+    --blue: rgb(0, 173, 239);
+    --green: rgb(19, 138, 19);
+    --bgcolor: #8f8f8f;
+    --bghover: #a7a7a7;
+    --loginbg: #473ab88e;
+    --loginhv: #473ab8;
+    --textcolor: rgb(5, 43, 94);
+}
+
+@media only screen and (min-width: 600px) {
+    body{
+        text-align: right;
+        direction: rtl;
+        font-family: 'iransans';
+        margin: 0;
+        padding: 0;
+        background-image: url('/images/index/background.jpg');
+        background-repeat: no-repeat;
+        background-size: 100%;
+        position: relative;
+    }
+    /* ----------------------- Navigation Bar ------------------- */
+    nav{
+        /* background-color: lightgreen; */
+        overflow: hidden;
+        padding: 3vw 4vw 0 4vw;
+    }
+    a.nav-link{
+        float: right;
+        text-decoration: none;
+        /* background-color: lightgray; */
+        padding: 0 2vw;
+        color: var(--color1);
+        border-left: var(--color1) 0.1vw solid;
+        font-size: 1.3vw;
+    }
+    a.nav-link.active{
+        color: darkblue;
+    }
+    a.nav-link.last{
+        border-left: none;
+    }
+    button.navbar-toggler{
+        float: right;
+        /* display: none; */
+        border: none;
+        background: none;
+        color: var(--color1);
+        font-size: 1.9vw;
+        cursor: pointer;
+    }
+
+    button.navbar-toggler:focus{
+        outline: none;
+    }
+    nav a.login{
+        color: white;
+        font-size: 1.3vw;
+        float: left;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    nav button.userbtn{
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.3vw;
+        float: left;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 2vw;
+    }
+    nav button.userbtn:focus{outline: none;}
+    nav button.userbtn i{
+        padding-right: 1vw;
+    }
+    nav a.info{
+        float: left;
+        margin-right: 6vw;
+    }
+    nav img.info{
+        width: 3vw;
+    }
+
+    button.navbar-toggler:hover, a.nav-link:hover, nav a.login:hover{
+        color: var(--hover);
+    }
+
+    /* ----------------------- Header ------------------- */
+    header{
+        /* background-color: rgba(144, 238, 144, 0.39); */
+        height: 40vw;
+        position: relative;
+        overflow: hidden;
+        font-size: 2vw;
+    }
+    header #text2,header #text3,header #img2,header #img3{display:none;}
+    header img{
+        position: absolute;
+        left: 7vw;
+        top: 2vw;
+        width: 35vw;
+    }
+    header h1.title{
+        position: absolute;
+        right: 6vw;
+        top: 1vw;
+        margin: 0;
+        font-size: 5vw;
+        color: darkblue;
+    }
+    header h1.under-title{
+        position: absolute;
+        right: 6vw;
+        top: 9vw;
+        margin: 0;
+        font-size: 2.1vw;
+        color: var(--color1);
+    }
+    header p.text{
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 10;
+        width: 100%;
+        text-align: justify;
+        font-size: 1.1vw;
+        color: var(--textcolor);
+    }
+    .text-holder{
+        /* overflow: hidden; */
+        position: absolute;
+        right: 6vw;
+        top: 14vw;
+        margin: 0;
+        width: 33%;
+    }
+    .text-holder .textarea{
+        overflow: hidden;
+        position: relative;
+        height: 12vw;
+    }
+    img.chevron{
+        position: absolute;
+        left: 47%;
+        top: 37vw;
+        width: 3vw;
+    }
+
+    .next{
+        color: darkblue;
+        position: absolute;
+        top: 16vw;
+        right: 40vw;
+        cursor: pointer;
+    }
+    .prev{
+        color: darkblue;
+        position: absolute;
+        top: 16vw;
+        right: 3vw;
+        cursor: pointer;
+    }
+    a.begin{
+        text-decoration: none;
+        color: white;
+        font-size: 1.5vw;
+        position: absolute;
+        top: 25vw;
+        right: 7vw;
+        padding: 0.5vw 4vw;
+        background-image: url('/images/index/button.png');
+        background-size: cover;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.342);
+        border-radius: 1.2vw;
+    }
+    a.begin:hover{
+        filter: brightness(0.9);
+    }
+    .prev:hover, .next:hover{
+        color: var(--hover);
+    }
+
+    /* ----------------------- Section 1 ------------------- */
+    section#section1{
+        overflow: hidden;
+        height: 55vw;
+    }
+
+    section#section1 h1.title{
+        color: white;
+        text-align: center;
+        margin: 2vw 0;
+        font-size: 1.5vw;
+    }
+    section#section1 img{
+        display: block;
+        width: 70%;
+        margin: 10vw auto;
+    }
+    /* ----------------------- Section 2 ------------------- */
+    section#section2{
+        /* background-color: rgba(144, 238, 144, 0.534); */
+        overflow: hidden;
+        height: 55vw;
+        position: relative;
+    }
+    section#section2 h1.title{
+        font-size: 2vw;
+        color: white;
+        margin-top: 10vw;
+        margin-right: 5vw;
+    }
+    section#section2 p.text{
+        width: 45%;
+        color: white;
+        font-size: 1.5vw;
+        text-align: justify;
+        margin-right: 5vw;
+    }
+    section#section2 .links a img{
+        width: 3vw;
+        margin-left: 1vw;
+        border-radius: 0.5vw;
+    }
+    section#section2 .links a img:hover{
+        filter: brightness(1.5);
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.342);
+    }
+    section#section2 .links{
+        margin: 5vw 5vw;
+    }
+    section#section2 img.img1{
+        position: absolute;
+        width: 12vw;
+        top: 10vw;
+        left: 20vw;
+    }
+    section#section2 img.img2{
+        position: absolute;
+        width: 12vw;
+        top: 20vw;
+        left: 10vw;
+    }
+    section#section2 img.img3{
+        position: absolute;
+        width: 12vw;
+        top: 30vw;
+        left: 20vw;
+    }
+    /* ----------------------- Section 3 ------------------- */
+    section#section3{
+        /* background-color: rgba(144, 238, 144, 0.534); */
+        overflow: hidden;
+        height: 50vw;
+        position: relative;
+    }
+    section#section3 h1.title{
+        font-size: 2vw;
+        color: var(--textcolor);
+        text-align: center;
+        width: 30%;
+        margin: auto;
+        margin-top: 10vw;
+        padding-bottom: 1vw;
+        border-bottom: var(--textcolor) 2px dashed;
+    }
+    section#section3 .card-content{
+        /* background-color: lightgreen; */
+        width: 80%;
+        margin: 8vw auto;
+        overflow: hidden;
+    }
+    section#section3 .card-content .partial{
+        float: right;
+        width: 30%;
+        /* background-color: lightsalmon; */
+        margin: 0 1vw;
+        text-align: center;
+    }
+    section#section3 .card-content .partial .circle{
+        width: 15vw;
+        height: 15vw;
+        margin: auto;
+        border: var(--color1) 2px solid;
+        border-radius: 50%;
+    }
+    section#section3 .card-content h1{
+        font-size: 3vw;
+        margin: 3vw 0 0 0;
+        color: chocolate;
+    }
+    section#section3 .card-content p{
+        font-size: 1.5vw;
+        /* font-weight: bold; */
+        margin: 0;
+        color: var(--textcolor);
+        width: 80%;
+        margin: auto;
+    }
+
+    /* ----------------------- Section 4 ------------------- */
+    section#section4{
+        /* background-color: rgba(144, 238, 144, 0.534); */
+        overflow: hidden;
+        height: 35vw;
+        position: relative;
+    }
+    section#section4 h1{
+        color: white;
+        font-size: 2vw;
+        margin-right: 5vw;
+        margin-top: 7vw;
+    }
+    section#section4 p{
+        color: white;
+        font-size: 1.3vw;
+        margin-right: 5vw;
+        width: 30%;
+        text-align: justify;
+        margin-top: 1vw;
+    }
+    section#section4 img{
+        width: 35vw;
+        position: absolute;
+        top: 1vw;
+        left: 10vw;
+    }
+    section#section4 a{
+        background-color: var(--green);
+        color: white;
+        font-size: 1.4vw;
+        margin-right: 5vw;
+        text-decoration: none;
+        padding: 0.3vw 2vw;
+        border-radius: 1vw;
+    }
+    section#section4 a:hover{
+        background-color: var(--hover);
+    }
+    /* ----------------------- footer ------------------- */
+    footer{
+        background-color: var(--blue);
+        overflow: hidden;
+        height: 17vw;
+        width: 100%;
+        position: relative;
+    }
+    footer ul{
+        margin-top: 1vw;
+        float: right;
+        width: 20%;
+        margin-right: 4vw;
+        list-style: none;
+        line-height: 2vw;
+    }
+    footer ul li{
+        margin: 0.2vw 0;
+        padding: 0;
+    }
+    footer li a{
+        font-size: 1.4vw;
+        color: white;
+        text-decoration: none;
+        margin: 0;
+        padding: 0;
+    }
+    footer li a:hover{
+        text-decoration: underline;
+    }
+    footer li a i{
+        padding-left: 1vw;
+    }
+    footer form{
+        float: right;
+        height: 12vw;
+        width: 35%;
+        padding-right: 5%;
+        margin-left: 5%;
+        border-left: white 1px solid;
+        border-right: white 1px solid;
+    }
+    footer form h1{
+        color: white;
+        font-size: 1.5vw;
+        font-family: 'iransans';
+        margin-bottom: 2vw;
+        margin-top: 2vw;
+    }
+    footer form h1 i{
+        padding-left: 1vw;
+    }
+    footer form input[type=email]{
+        background-color: white;
+        font-size: 1.2vw;
+        padding: 0.3vw 1vw;
+        border: lightgray 1px solid;
+        font-family: 'iransans';
+    }
+    footer form input[type=submit]{
+        background-color: var(--green);
+        font-size: 1.2vw;
+        padding: 0.3vw 1vw;
+        color: white;
+        border: var(--green) 1px solid;
+        font-family: 'iransans';
+        cursor: pointer;
+    }
+    footer form input[type=submit]:hover{
+        background-color: var(--hover);
+        border: var(--hover) 1px solid;
+    }
+    footer h1.phone{
+        color: white;
+        font-size: 1.5vw;
+    }
+    footer h1.email{
+        color: white;
+        font-size: 1.5vw;
+    }
+    footer h1.phone i,footer h1.email i{
+        color: orange;
+        padding-left: 1vw;
+        font-size: 2vw;
+    }
+    footer .links{
+        position: absolute;
+        left: 5vw;
+        bottom: 2vw;
+    }
+    footer .links img{
+        width: 4vw;
+        margin: 0 0.5vw;
+    }
+    footer h1.down-title{
+        color: white;
+        position: absolute;
+        bottom: 0;
+        left: 45%;
+        font-size: 1.2vw;
+    }
+
+    /* ----------------------- Dropdown ------------------- */
+    .dropdown{
+        position: absolute;
+        background-color: rgb(255, 255, 255);
+        top: 3vw;
+        left: 19vw;
+        width: 200px;
+        box-shadow: 0 10px 8px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 2px;
+        padding: 0;
+        text-align: center;
+        z-index: 10;
+        display: none;
+    }
+    .dropdown a.dropdown-link{
+        display: block;
+        padding: 10px 20px;
+        font-family: 'iransans';
+        font-size: 1vw;
+        text-decoration: none;
+        width: 160px;
+        text-align: right;
+        color: var(--textcolor);
+    }
+    .dropdown a.dropdown-link:hover{
+        background-color: rgb(224, 224, 224);
+    }
+    .dropdown .acount-link{
+        position: relative;
+        margin: 0;
+        height: 70px;
+    }
+    .dropdown .acount-link .picture-pad{
+        background-color: rgb(206, 206, 206);
+        position: absolute;
+        top: 15px;
+        right: 8px;
+        margin: 0;
+        color: white;
+        font-size: 2vw;
+        padding: 0.1vw 0.6vw 0 0.6vw;
+        border-radius: 50%;
+    }
+    .dropdown .acount-link h1.uname{
+        color: var(--textcolor);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 0.9vw;
+        text-decoration: none;
+        border: none;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+    .dropdown .acount-link h1.enter-panel{
+        color: var(--textcolor);
+        font-family: 'iransans';
+        color: blue;
+        font-size: 0.9vw;
+        text-decoration: none;
+        border: none;
+        position: absolute;
+        top: 30px;
+        left: 2vw;
+    }
+    .enter-icon{
+        color: blue;
+        margin-right: 10px;
+    }
+    .dropdown .acount-link:hover{
+        background-color: rgb(224, 224, 224);
+    }
+    .dropdown .link-border{
+        background-color: rgb(216, 215, 215);
+        width: 70%;
+        height: 1px;
+        margin-right: 30px;
+    }
+    a.dropdown-link.logoutbtn{
+        color: rgb(252, 21, 21);
+    }
+    .dropdown .icon{
+        margin-left: 7px;
+        font-size: 14px;
+    }
+}
+@media only screen and (max-width: 600px) {
+    body{
+        text-align: right;
+        direction: rtl;
+        font-family: 'iransans';
+        margin: 0;
+        padding: 0;
+        background-image: url('/images/index/background2.jpg');
+        background-repeat: no-repeat;
+        background-size: 100%;
+        position: relative;
+    }
+    /* ----------------------- Navigation Bar ------------------- */
+    .nav-modal{
+        display: none;
+        /* background-color: rgba(0, 0, 0, 0.493); */
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10;
+    }
+    nav{
+        /* background-color: lightgreen; */
+        overflow: hidden;
+        padding: 3vw 4vw 0 4vw;
+    }
+    nav .collapse#navbarcontent{
+        background-color: white;
+        position: absolute;
+        width: 90%;
+        z-index: 20;
+        padding-bottom: 4vw;
+        display: none;
+    }
+    a.nav-link{
+        display: block;
+        text-decoration: none;
+        /* background-color: lightgray; */
+        padding: 2vw 0;
+        color: var(--color1);
+        font-size: 3vw;
+        text-align: center;
+        border-bottom: lightgray 1px solid;
+        width: 80%;
+        margin: auto;
+    }
+    a.nav-link.active{
+        color: darkblue;
+    }
+    a.nav-link.last{
+        border-left: none;
+    }
+    button.navbar-toggler{
+        float: right;
+        /* display: none; */
+        border: none;
+        background: none;
+        color: var(--color1);
+        font-size: 5vw;
+        cursor: pointer;
+    }
+
+    button.navbar-toggler:focus{
+        outline: none;
+    }
+    nav a.login{
+        color: var(--blue);
+        font-size: 3vw;
+        float: left;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    nav button.userbtn{
+        background: none;
+        border: none;
+        color: var(--blue);
+        font-size: 4vw;
+        float: left;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    nav button.userbtn:focus{outline: none;}
+    nav button.userbtn i{
+        padding-right: 1vw;
+    }
+    nav a.info{
+        float: left;
+        margin-right: 6vw;
+        filter: invert(1) hue-rotate(90deg);
+    }
+    nav img.info{
+        width: 7vw;
+    }
+
+    button.navbar-toggler:hover, a.nav-link:hover, nav a.login:hover{
+        color: var(--hover);
+    }
+
+    /* ----------------------- Header ------------------- */
+    header{
+        /* background-color: rgba(144, 238, 144, 0.39); */
+        height: 72vw;
+        position: relative;
+        overflow: hidden;
+        font-size: 3vw;
+    }
+    header #text2,header #text3,header #img2,header #img3{display:none;}
+    header img{
+        position: absolute;
+        left: 1vw;
+        top: 48vw;
+        width: 25vw;
+    }
+    header h1.title{
+        position: absolute;
+        right: 6vw;
+        top: 2vw;
+        margin: 0;
+        font-size: 9vw;
+        color: darkblue;
+    }
+    header h1.under-title{
+        position: absolute;
+        right: 6vw;
+        top: 15vw;
+        margin: 0;
+        font-size: 4vw;
+        color: var(--color1);
+    }
+    header p.text{
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 10;
+        width: 100%;
+        text-align: justify;
+        font-size: 2.5vw;
+        color: var(--textcolor);
+    }
+    .text-holder{
+        /* overflow: hidden; */
+        position: absolute;
+        right: 6vw;
+        top: 22vw;
+        margin: 0;
+        width: 68%;
+    }
+    .text-holder .textarea{
+        overflow: hidden;
+        position: relative;
+        height: 30vw;
+    }
+    img.chevron{
+        position: absolute;
+        left: 47%;
+        top: 69vw;
+        width: 6vw;
+    }
+    .next{
+        color: darkblue;
+        position: absolute;
+        top: 31vw;
+        right: 74vw;
+        cursor: pointer;
+    }
+    .prev{
+        color: darkblue;
+        position: absolute;
+        top: 31vw;
+        right: 3vw;
+        cursor: pointer;
+    }
+    a.begin{
+        text-decoration: none;
+        color: white;
+        font-size: 4vw;
+        position: absolute;
+        top: 50vw;
+        right: 7vw;
+        padding: 0.5vw 7vw;
+        background-image: url('/images/index/button.png');
+        background-size: cover;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.342);
+        border-radius: 3vw;
+    }
+    a.begin:hover{
+        filter: brightness(0.9);
+    }
+    .prev:hover, .next:hover{
+        color: var(--hover);
+    }
+
+    /* ----------------------- Section 1 ------------------- */
+    section#section1{
+        overflow: hidden;
+        height: 60vw;
+        /* background-color: rgba(144, 238, 144, 0.548); */
+    }
+
+    section#section1 h1.title{
+        color: white;
+        text-align: center;
+        margin: 2vw 0;
+        font-size: 2.5vw;
+    }
+    section#section1 img{
+        display: block;
+        width: 90%;
+        margin: 10vw auto;
+    }
+    /* ----------------------- Section 2 ------------------- */
+    section#section2{
+        /* background-color: rgba(144, 238, 144, 0.534); */
+        overflow: hidden;
+        height: 100vw;
+        position: relative;
+    }
+    section#section2 h1.title{
+        font-size: 4vw;
+        color: white;
+        margin-top: 10vw;
+        margin-right: 5vw;
+    }
+    section#section2 p.text{
+        width: 88%;
+        color: white;
+        font-size: 3vw;
+        text-align: justify;
+        margin-right: 5vw;
+    }
+    section#section2 .links{
+        display: none;
+    }
+    section#section2 img.img1{
+        position: absolute;
+        width: 20vw;
+        top: 50vw;
+        left: 20vw;
+    }
+    section#section2 img.img2{
+        position: absolute;
+        width: 20vw;
+        top: 60vw;
+        left: 38vw;
+    }
+    section#section2 img.img3{
+        position: absolute;
+        width: 20vw;
+        top: 50vw;
+        left: 57vw;
+    }
+    /* ----------------------- Section 3 ------------------- */
+    section#section3{
+        /* background-color: rgba(144, 238, 144, 0.534); */
+        overflow: hidden;
+        height: 65vw;
+        position: relative;
+    }
+    section#section3 h1.title{
+        font-size: 3vw;
+        color: var(--textcolor);
+        text-align: center;
+        width: 30%;
+        margin: auto;
+        margin-top: 10vw;
+        padding-bottom: 1vw;
+        border-bottom: var(--textcolor) 2px dashed;
+    }
+    section#section3 .card-content{
+        /* background-color: lightgreen; */
+        width: 100%;
+        margin: 8vw auto;
+        overflow: hidden;
+    }
+    section#section3 .card-content .partial{
+        float: right;
+        width: 30%;
+        /* background-color: lightsalmon; */
+        margin: 0 1vw;
+        text-align: center;
+    }
+    section#section3 .card-content .partial .circle{
+        width: 25vw;
+        height: 25vw;
+        margin: auto;
+        border: var(--color1) 2px solid;
+        border-radius: 50%;
+    }
+    section#section3 .card-content h1{
+        font-size: 6vw;
+        margin: 4vw 0 0 0;
+        color: chocolate;
+    }
+    section#section3 .card-content p{
+        font-size: 2.5vw;
+        /* font-weight: bold; */
+        margin: 0;
+        color: var(--textcolor);
+    }
+
+    /* ----------------------- Section 4 ------------------- */
+    section#section4{
+        /* background-color: rgba(144, 238, 144, 0.534); */
+        overflow: hidden;
+        height: 45vw;
+        position: relative;
+    }
+    section#section4 h1{
+        color: white;
+        font-size: 4vw;
+        margin-right: 5vw;
+        margin-top: 3vw;
+    }
+    section#section4 p{
+        color: white;
+        font-size: 2.5vw;
+        margin-right: 3vw;
+        width: 55%;
+        text-align: justify;
+        margin-top: 1vw;
+    }
+    section#section4 img{
+        width: 35vw;
+        position: absolute;
+        top: 26vw;
+        left: 1vw;
+    }
+    section#section4 a{
+        background-color: var(--green);
+        color: white;
+        font-size: 3vw;
+        margin-right: 5vw;
+        text-decoration: none;
+        padding: 0.9vw 4vw;
+        border-radius: 2vw;
+    }
+    section#section4 a:hover{
+        background-color: var(--hover);
+    }
+    /* ----------------------- footer ------------------- */
+    footer{
+        background-color: var(--blue);
+        overflow: hidden;
+        width: 100%;
+        height: 30vw;
+        position: relative;
+        padding-top: 10vw;
+    }
+    footer ul{
+        margin-top: 1vw;
+        float: right;
+        width: 25%;
+        margin-right: 1vw;
+        list-style: none;
+        line-height: 3.5vw;
+        padding-right: 2vw;
+    }
+    footer ul li{
+        margin: 0.2vw 0;
+        padding: 0;
+    }
+    footer li a{
+        font-size: 2.5vw;
+        color: white;
+        text-decoration: none;
+        margin: 0;
+        padding: 0;
+    }
+    footer li a:hover{
+        text-decoration: underline;
+    }
+    footer li a i{
+        padding-left: 1vw;
+    }
+    footer form{
+        float: right;
+        height: 20vw;
+        width: 35%;
+        padding-right: 5%;
+        margin-left: 5%;
+        border-left: white 1px solid;
+        border-right: white 1px solid;
+    }
+    footer form h1{
+        color: white;
+        font-size: 3vw;
+        font-family: 'iransans';
+        margin-bottom: 2vw;
+        margin-top: 2vw;
+    }
+    footer form h1 i{
+        padding-left: 1vw;
+    }
+    footer form input[type=email]{
+        background-color: white;
+        width: 60%;
+        font-size: 2vw;
+        padding: 0.3vw 1vw;
+        border: lightgray 1px solid;
+        font-family: 'iransans';
+    }
+    footer form input[type=submit]{
+        background-color: var(--green);
+        font-size: 2vw;
+        padding: 0.3vw 1vw;
+        color: white;
+        border: var(--green) 1px solid;
+        font-family: 'iransans';
+        cursor: pointer;
+    }
+    footer form input[type=submit]:hover{
+        background-color: var(--hover);
+        border: var(--hover) 1px solid;
+    }
+    footer h1.phone{
+        color: white;
+        font-size: 2vw;
+    }
+    footer h1.email{
+        color: white;
+        font-size: 2vw;
+    }
+    footer h1.phone i,footer h1.email i{
+        color: orange;
+        padding-left: 1vw;
+        font-size: 3vw;
+    }
+    footer .links{
+        position: absolute;
+        left: 5vw;
+        bottom: 2vw;
+    }
+    footer .links img{
+        width: 4vw;
+        margin: 0 1vw;
+    }
+    footer h1.down-title{
+        color: white;
+        position: absolute;
+        bottom: 0;
+        left: 45%;
+        font-size: 2vw;
+    }      
+
+    /* ----------------------- Dropdown ------------------- */
+    .dropdown{
+        position: fixed;
+        background-color: rgb(255, 255, 255);
+        top: 3.5vw;
+        left: 30vw;
+        width: 50vw;
+        box-shadow: 0 10px 8px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 2px;
+        padding: 0;
+        text-align: center;
+        z-index: 30;
+        display: none;
+    }
+    .dropdown a.dropdown-link{
+        display: block;
+        padding: 2vw 3vw;
+        font-family: 'iransans';
+        font-size: 3.2vw;
+        text-decoration: none;
+        width: 160px;
+        text-align: right;
+        color: var(--textcolor);
+    }
+    .dropdown a.dropdown-link:hover{
+        background-color: rgb(224, 224, 224);
+    }
+    .dropdown .acount-link{
+        position: relative;
+        margin: 0;
+        height: 20vw;
+    }
+    .dropdown .acount-link .picture-pad{
+        background-color: rgb(206, 206, 206);
+        position: absolute;
+        top: 15px;
+        right: 8px;
+        margin: 0;
+        color: white;
+        font-size: 4vw;
+        padding: 0.5vw 2vw 0 2vw;
+        border-radius: 50%;
+    }
+    .dropdown .acount-link h1.uname{
+        color: var(--textcolor);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 2.5vw;
+        text-decoration: none;
+        border: none;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+    .dropdown .acount-link h1.enter-panel{
+        color: var(--textcolor);
+        font-family: 'iransans';
+        color: blue;
+        font-size: 2.5vw;
+        text-decoration: none;
+        border: none;
+        position: absolute;
+        top: 30px;
+        left: 2vw;
+    }
+    .enter-icon{
+        color: blue;
+        margin-right: 2vw;
+    }
+    .dropdown .acount-link:hover{
+        background-color: rgb(224, 224, 224);
+    }
+    .dropdown .link-border{
+        background-color: rgb(216, 215, 215);
+        width: 70%;
+        height: 1px;
+        margin-right: 30px;
+    }
+    a.dropdown-link.logoutbtn{
+        color: rgb(252, 21, 21);
+    }
+    .dropdown .icon{
+        margin-left: 7px;
+        font-size: 14px;
+    }
+}

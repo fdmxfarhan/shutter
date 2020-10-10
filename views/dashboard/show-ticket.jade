@@ -1,0 +1,56 @@
+extends ../layout
+block styles
+    link(rel="stylesheet", href="/stylesheets/dashboard.css")
+
+block content
+    .dashboard
+        include user-layout
+        .dashboard-cont
+            .container
+                h1.acount-header= ticket.subject
+                .answer#answer
+                    i.fa.fa-pencil
+                    h1 پاسخ
+                    i.fa.fa-plus
+                form.ticket.ticket-answer.hidden(action="/dashboard/ticket/answer" method="POST")
+                    input.hidden(type="text" name="id" value="#{ticket._id}")
+                    .input-area
+                        i.fa.fa-user
+                        input(type="text" name="fullname" placeholder="نام و نام خانوادگی" value = "#{user.fullname}")
+                    .input-area
+                        i.fa.fa-envelope
+                        input(type="text" name="email" placeholder="پست الکترونیکی (E-mail)" value = "#{user.username}")
+                    textarea(name="text" placeholder="پیام خود را اینجا بنویسید...")
+                    br
+                    input.submit(type="submit" value="ارسال")
+                -for(var i=ticket.answers.length-1; i>=0; i--){
+                    .ticket-area
+                        .ticket-header-area
+                            i.fa.fa-user
+                            .ticket-header
+                                h1.title= ticket.answers[i].fullname
+                                h1.under= shamsi(ticket.answers[i].date)
+                        p
+                            -for(var j=0; j<ticket.answers[i].text.length; j++){
+                                -if(ticket.answers[i].text[j] != '\n')
+                                    | #{ticket.answers[i].text[j]}
+                                -else
+                                    br
+                            -}
+                -}
+                .ticket-area
+                    .ticket-header-area
+                        i.fa.fa-user
+                        .ticket-header
+                            h1.title= ticket.fullname
+                            h1.under= shamsi(ticket.date)
+                    p
+                        -for(var j=0; j<ticket.text.length; j++){
+                            -if(ticket.text[j] != '\n')
+                                | #{ticket.text[j]}
+                            -else
+                                br
+                        -}
+                         
+                
+    script(src="/javascripts/dashboard.js")

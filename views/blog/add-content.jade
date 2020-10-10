@@ -1,0 +1,43 @@
+extends blog-layout
+
+block blog-content
+    .add-blog-content
+        h1.add-title + افزودن محتوا
+        form.add-content(action="/upload/add-content" enctype="multipart/form-data" method="POST")
+            -var categories = ['آموزشی', 'ترجمه', 'معرفی مترجم', 'معرفی کتاب', 'محیط زیست', 'داستان', 'خدمات شاتر'];
+            label(for="title") عنوان محتوا:
+            input.title(type="text" name="title" required)
+            br
+            label(for="category") دسته بندی:
+            select(name="category")
+                -for(var i=0; i<categories.length; i++){
+                    option(value='#{categories[i]}') #{categories[i]}
+                -}
+            br
+            //- h1.content-area-title محتوا:
+            //- .new-content-area
+            //-     -for(var i=0; i<100; i++){
+            //-         .text-area(id = 'text#{i}')
+            //-             textarea(name="text#{i}" placeholder="پاراگراف...")
+            //-             i.fa.fa-times.remove(id='remove-text#{i}')
+            //-         .upload-area(id = 'image#{i}') فایل خود را انتخاب کنید
+            //-             i.fa.fa-cloud-upload
+            //-             input.file(type="file" name="file#{i}") 
+            //-             i.fa.fa-times.remove(id='remove-image#{i}')
+            //-     -}
+            //-     .buttons-area
+            //-         a.add-picture + افزودن عکس
+            //-         a.add-paragraph + افزودن پاراگراف
+            h1.content-area-title خلاصه محتوا:
+            .upload-area.show فایل خود را انتخاب کنید
+                i.fa.fa-cloud-upload
+                input.file(type="file" name="photo") 
+            .text-area.show
+                textarea(name="metadsc" placeholder="متن خلاصه...")
+            br
+            label(for="URL") URL اختصاصی:
+            input.title(type="text" name="URL")
+            br
+            input.submit(type="submit" value="ثبت")
+
+

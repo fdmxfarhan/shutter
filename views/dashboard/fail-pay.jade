@@ -1,0 +1,15 @@
+extends ../layout
+block styles
+    link(rel="stylesheet", href="/stylesheets/message-pay.css")
+block content
+    .massage
+        h1.title.fail  
+            i.fa.fa-times-circle.icon   
+            | خطایی رخ داده است.
+        .item نام و نام خانوادگی: #{payment.fullname}
+        .item توضیحات: #{payment.description}
+        //- p.text از اعتماد شما سپاس گزاریم. درخواست ثبت نام شما ارسال شده و پس از تایید فرایند, صورت حساب هزینه کلاس برای شما صادر خواهد شد و می توانید نسبت به پرداخت آن اقدام نمایید.
+        a.link(href="/payments") 
+            i.fa.fa-chevron-left.icon
+            | بازگشت
+            

@@ -1,0 +1,86 @@
+extends ../layout
+block styles
+    link(rel="stylesheet", href="/stylesheets/dashboard.css")
+
+block content
+    .dashboard
+        include user-layout
+        .dashboard-cont
+            .container
+                h1.acount-header کد های تخفیف
+                table.users
+                    tr
+                        th کد تخفیف
+                        th نوع
+                        th تاریخ شروع
+                        th تاریخ پایان
+                        th درصد
+                        th مبلغ
+                        th عملیات
+                    - for(var i=0 ; i<offcodes.length ; i++){
+                        tr
+                            td= offcodes[i].code
+                            td= offcodes[i].type
+                            td= shamsi(offcodes[i].startDate)
+                            td= shamsi(offcodes[i].endDate)
+                            td= offcodes[i].percent
+                            td= offcodes[i].price
+                            td
+                                a(href="/dashboard/remove-offcode?id=#{offcodes[i]._id}") حذف
+                    - } 
+                - if(user.role == 'admin'){
+                    a.add-offcode#add-offcode-btn  
+                        i.fa.fa-plus.icon  
+                        | ساخت کد تخفیف  
+                - }
+    - if(user.role == 'admin'){
+        .add-offcode-modal#add-offcode-modal.hidden
+        .add-offcode-panel.hidden
+            span.close#offcode-close &times;
+            h1.title ساخت کد تخفیف
+            form(action="/dashboard/add-offcode" method="POST")
+                label(for="code") کد تخفیف:
+                input.input(type="text" name="code" placeholder="Off Code" value='#{defaultCode}')
+                h1.labelTitle تاریخ شروع:
+                select(name="startDay")
+                    -for(var i=1; i<=31; i++)
+                        option(value="#{i}")= i
+                label(for="startMonth") /
+                select(name="startMonth")
+                    -for(var i=1; i<=12; i++)
+                        option(value="#{i}")= i
+                label(for="startYear") /
+                select(name="startYear")
+                    -for(var i=2019; i<2030; i++)
+                        option(value="#{i}")= i
+                h1.labelTitle تاریخ پایان:
+                select(name="endDay")
+                    -for(var i=1; i<=31; i++)
+                        option(value="#{i}")= i
+                label(for="endMonth") /
+                select(name="endMonth")
+                    -for(var i=1; i<=12; i++)
+                        option(value="#{i}")= i
+                label(for="endYear") /
+                select(name="endYear")
+                    -for(var i=2019; i<2030; i++)
+                        option(value="#{i}")= i
+                br
+                br
+                label نوع کد: 
+                a.selectTab.right.active#percent درصد
+                a.selectTab.left#price مبلغ
+                input.hidden#ispercent(type="checkbox" name="ispercent" checked)
+                input.input#percentInput(type="number" name="percent" placeholder="درصد...")
+                input.input.hidden#priceInput(type="number" name="price" placeholder="مبلغ (ریال)...")
+                br
+                br
+                label.block-mobile قابل استفاده برای: 
+                a.selectTab.right.active#evryone همه کاربران 
+                a.selectTab.left#oneUser یک کاربر
+                input.hidden#allUsers(type="checkbox" name="allUsers" checked)
+                input.hidden.input#oneUserInput(type="text" name="oneUser" placeholder="نام کاربری (ایمیل)...")
+                br
+                input.submit(type="submit" value="ساخت کد")
+    - }
+    script(src="/javascripts/dashboard.js")

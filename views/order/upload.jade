@@ -1,0 +1,63 @@
+extends ../layout
+
+block styles
+    link(rel="stylesheet", href="/stylesheets/order.css")
+    //- script(src="https://www.google.com/recaptcha/api.js?render=_reCAPTCHA_site_key")
+block content
+    .order-area
+        .translation-panel
+            .line
+            .levels    
+                .level.active 
+                    .number ۱
+                    .text اطلاعات فردی
+                .level.second.active 
+                    .number ۲
+                    .text اطلاعات سفارش
+                .level.third.active 
+                    .number ۳
+                    .text آپلود
+                .level.fourth
+                    .number ۴
+                    .text تکمیل فرایند
+            .register-part
+                form.upload(action="/upload/order" enctype="multipart/form-data"  method="POST")
+                    input.hidden(type="text" name="id" value='#{id}')
+                    include message
+                    .right-cont
+                        .upload-area فایل خود را انتخاب کنید
+                            i.fa.fa-cloud-upload
+                            input.file(type="file" name="myFile") 
+                        br
+                        a.telegram(href="http://t.me/shutterco") یا ثبت سفارش از طریق تلگرام
+                            i.fa.fa-telegram
+                    .center-cont یا
+                    .left-cont
+                        textarea(name="text" placeholder="متن خود را در اینجا کپی کنید")
+                        br
+                    a.telegram2.hidden(href="http://t.me/shutterco") یا ثبت سفارش از طریق تلگرام
+                        i.fa.fa-telegram
+                    input.submit(type="submit" value="ارسال") 
+        .sidebar-area
+            .order-sidebar
+                h1.title 
+                    i.fa.fa-info
+                    | راهنما
+                p
+                    | در این بخش میتونی سفارش خودتو برامون بفرستی.
+                    | اگه بخوای فایلی رو آپلود کنی میتونی در قالب عکس های باکیفیت از متن(jpg و dgfgh😅) ، فایل word یا PDF  ارسال کنی.
+                    | اگر بخواهی بخش هایی از متن خودت رو برامون ارسال کنی یا کل فایل رو آپلود نکنی هم میتونی متن رو کپی و در باکس زیر paste کنی
+                    | در هر صورت سفارش خودت رو با تایپ رایگان دریافت میکنی
+            .order-sidebar
+                h1.title گزینه ها
+                a.side-link#calculate-words
+                    i.fa.fa-calculator
+                    | محاسبه تخمینی کلمات
+                a.side-link#prices
+                    i.fa.fa-dollar
+                    | تعرفه ها
+                a.side-link#calculate-price.last 
+                    i.fa.fa-calculator
+                    | محاسبه تخمینی قیمت
+    include ./popups
+    script(src="/javascripts/order.js")

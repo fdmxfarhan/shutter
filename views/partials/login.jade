@@ -1,0 +1,37 @@
+.login-modal
+    .login-area
+        i.fa.fa-times#close-login
+        button#login-btn.active ورود
+        button#register-btn ثبت نام
+        form#login(action="/user/login" method="POST")
+            h1 
+                i.fa.fa-sign-in
+                | ورود
+            .textpad
+                input.textarea(type="text" name="username" placeholder="نام کاربری (ایمیل)" required)
+                i.fa.fa-user.icon
+            .textpad
+                input.textarea(type="password" name="password" placeholder="کلمه عبور" required)
+                i.fa.fa-key.icon
+            a(href="#") رمز عبور خود را فراموش کرده ام.
+            input.submit(type="submit" value="ورود")
+        form#register(action="/user/register" method="POST")
+            .textpad
+                input.textarea(type="text" name="firstname" placeholder="نام")
+                i.fa.fa-user.icon
+            .textpad
+                input.textarea(type="text" name="lastname" placeholder="نام خانوادگی")
+                i.fa.fa-user.icon
+            .textpad
+                input.textarea(type="email" name="username" placeholder="ایمیل")
+                i.fa.fa-envelope.icon
+            .textpad
+                input.textarea(type="number" name="phone" placeholder="تلفن")
+                i.fa.fa-phone.icon
+            .textpad
+                input.textarea(type="password" name="password" placeholder="رمز عبور")
+                i.fa.fa-key.icon
+            .textpad
+                input.textarea(type="password" name="password2" placeholder="تایید رمز عبور")
+                i.fa.fa-check.icon
+            input.submit(type="submit" value="ثبت نام")

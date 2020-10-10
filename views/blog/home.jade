@@ -1,0 +1,24 @@
+extends blog-layout
+
+block blog-content
+    .last-news-cont-pad
+        h1.news-cont-title آخرین مطالب 
+        -for(var i=0; i<contents.length && i<10; i++){
+            .last-news-cont
+                .imgpad
+                    img(src='/files/#{contents[i].photo}')
+                .info
+                    h1.last-news-title= contents[i].title
+                    p.last-news-text= contents[i].metadsc
+                    .date= contents[i].date
+                    a.last-news-link(href='/blog/content?id=#{contents[i]._id}') ادامه ...
+                    -if(user && user.role!='user'){
+                        .content-edit-area
+                            a(href="/blog/remove?id=#{contents[i]._id}")
+                                i.fa.fa-times
+                            a(href="/blog/edit?id=#{contents[i]._id}")
+                                i.fa.fa-edit
+                    -}
+        -}
+
+

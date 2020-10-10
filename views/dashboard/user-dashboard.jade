@@ -1,0 +1,68 @@
+extends ../layout
+block styles
+    link(rel="stylesheet", href="/stylesheets/dashboard.css")
+
+block content
+    .messages
+        -if(messages.length > 0){
+            .message-content
+                span.close#message-close &times;
+                ul
+                    - for(var i=0; i<messages.length; i++){
+                        li= messages[i].msg
+                    - }
+        -}
+    .dashboard
+        include user-layout                
+        .dashboard-cont
+            .top-cont
+                .personal-info
+                    h1.acount-header اطلاعات شخصی
+                    table
+                        tr
+                            th 
+                                .title نام و نام خانوادگی:
+                                .text= fullname
+                            th 
+                                .title پست الکترونیکی:
+                                .text= user.username
+                        tr
+                            td 
+                                .title شماره تماس:
+                                .text= user.phone
+                            td 
+                                .title دریافت خبرنامه:
+                                .text خیر
+                    a.edit-link(href="/dashboard/edit-profile")
+                        .edit-link-pad
+                            i.fa.fa-edit.link-icon
+                            | ویرایش اطلاعات شخصی
+                .last-translations
+                    h1.acount-header آخرین سفارش ها
+                    .translations-pad
+                        -if(translations.length == 0)
+                            h1.no-translation هنوز سفارشی ثبت نشده
+                        -else{
+                            table
+                                -for(var i=0; i<translations.length; i++){
+                                    tr
+                                        td.icon
+                                            i.fa.fa-copy
+                                        td.text #{translations[i].title}
+                                        td.text #{translations[i].baseLanguage} به #{translations[i].destLanguage}
+                                        td.text (#{translations[i].status})
+                                        td.icon-link
+                                            a.table-link(href=`/dashboard/order?id=${translations[i]._id}`)
+                                                i.fa.fa-eye
+                                        //- td.icon-link
+                                        //-     a.table-link(href=`/dashboard/order?id=${translations[i]._id}`)
+                                        //-         i.fa.fa-edit
+                                -}
+                        -}
+                    a.edit-link(href="#")
+                        .edit-link-pad
+                            i.fa.fa-edit.link-icon
+                            | مشاهده آخرین سفارش ها
+            .bottom-cont
+                h1.acount-header آخرین اخبار سایت
+    script(src="/javascripts/dashboard.js")

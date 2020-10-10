@@ -1,0 +1,248 @@
+@media only screen and (min-width: 600px) {
+    .about-content{
+        width: 100%;
+        /* background-color: lightcoral; */
+        margin-top: 6vw;
+    }
+    .about-content .right-content{
+        background-color: white;
+        width: 86%;
+        margin: auto;
+        overflow: hidden;
+        padding: 2vw;
+        border-radius: 2vw;
+        transition-duration: 1s;
+        box-shadow: 0 0 0.4vw 0.1vw rgba(0, 0, 0, 0.2);
+    }
+    .about-content .right-content:hover{
+        /* border: lightgray 1px solid; */
+        box-shadow: 0 0 0.8vw 0.5vw rgba(0, 0, 0, 0.2);
+    }
+    .about-content .right-content .text{
+        float: right;
+        width: 60%;
+    }
+    .about-content .right-content img{
+        float: right;
+        width: 40%;
+    }
+    .about-content .right-content .text h1{
+        color: var(--shutter);
+        font-family: 'iransans';
+        font-size: 2vw;
+    }
+    .about-content .right-content .text p{
+        font-family: 'iransans';
+        font-size: 1.2vw;
+        text-align: justify;
+    }
+    .about-content .right-content .text a{
+        font-family: 'iransans';
+        font-size: 1.3vw;
+        text-align: justify;
+        text-decoration: none;
+        display: block;
+        color: var(--shutter);
+    }
+    .about-content .right-content .text a:hover{
+        color: chocolate;
+    }
+    .persons-area{
+        width: 100%;
+        /* background-color: lightblue; */
+        padding: 5vw 0;
+        overflow: hidden;
+        position: relative;
+    }
+    .persons-area .person{
+        width: 80%;
+        padding: 2vw;
+        background-color: white;
+        margin: auto;
+        border-radius: 2vw;
+        transition-duration: 1s;
+        box-shadow: 0 0 0.4vw 0.1vw rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+    }
+    .persons-area .person:hover{
+        box-shadow: 0 0 1vw 0.5vw rgba(0, 0, 0, 0.2);
+    }
+    .persons-area .person .text{
+        float: right;
+        width: 65%;
+        padding-left: 5%;
+    }
+    .persons-area .person img{
+        float: right;
+        width: 25%;
+        border-radius: 1vw;
+    }
+    .persons-area .person h1{
+        margin: 0;
+        padding-top: 1vw;
+        padding-bottom: 0.5vw;
+        color: var(--shutter);
+        font-family: 'iransans';
+        font-size: 1.5vw;
+    }
+    .persons-area .person p{
+        margin: 0;
+        font-family: 'iransans';
+        font-size: 1.2vw;
+        text-align: justify;
+    }
+    .persons-area .person .email{
+        color: rgb(97, 97, 97);
+        padding-top: 1vw;
+        display: inline;
+    }
+    .persons-area .person.center{
+        width: 46%;
+        background-color: var(--shutter);
+        z-index: 10;
+    }
+    .persons-area .person.center h1{color: white;}
+    .persons-area .person.center p{color: rgb(233, 233, 233);}
+    .persons-area .person.right{
+        width: 40%;
+        float: right;
+        margin-right: 4%;
+        margin-top: 3vw;
+        z-index: 10;
+    }
+    .persons-area .person.right p{font-size: 1vw;}
+    .persons-area .person.left p{font-size: 1.1vw;}
+    .persons-area .person.left{
+        width: 40%;
+        float: right;
+        margin-right: 3%;
+        margin-top: 3vw;
+        z-index: 10;
+    }
+    .persons-area .right-line{
+        border-top: var(--shutter) 4px solid;
+        border-left: var(--shutter) 4px solid;
+        position: absolute;
+        top: 15vw;
+        left: 18vw;
+        width: 7%;
+        height: 12.5vw;
+        z-index: 1;
+    }
+    .persons-area .left-line{
+        border-top: var(--shutter) 4px solid;
+        border-right: var(--shutter) 4px solid;
+        position: absolute;
+        top: 15vw;
+        right: 18vw;
+        width: 7%;
+        height: 12.5vw;
+        z-index: 1;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .about-content{
+        width: 100%;
+        /* background-color: lightcoral; */
+        margin-top: 14vw;
+    }
+    .about-content .right-content{
+        background-color: white;
+        width: 86%;
+        margin: auto;
+        overflow: hidden;
+        padding: 2vw;
+        border-radius: 2vw;
+        transition-duration: 1s;
+        box-shadow: 0 0 1vw 0.5vw rgba(0, 0, 0, 0.2);
+    }
+    .about-content .right-content:hover{
+        /* border: lightgray 1px solid; */
+        box-shadow: 0 0 2vw 1vw rgba(0, 0, 0, 0.2);
+    }
+    .about-content .right-content .text{
+        width: 98%;
+    }
+    .about-content .right-content img{
+        width: 90%;
+        margin: auto;
+    }
+    .about-content .right-content .text h1{
+        color: var(--shutter);
+        font-family: 'iransans';
+        font-size: 4vw;
+    }
+    .about-content .right-content .text p{
+        font-family: 'iransans';
+        font-size: 3.2vw;
+        text-align: justify;
+    }
+    .about-content .right-content .text a{
+        padding-top: 1vw;
+        font-family: 'iransans';
+        font-size: 3vw;
+        text-align: justify;
+        text-decoration: none;
+        display: block;
+        color: var(--shutter);
+    }
+    .about-content .right-content .text a:hover{
+        color: chocolate;
+    }
+    .persons-area{
+        width: 100%;
+        /* background-color: lightblue; */
+        padding: 5vw 0;
+        overflow: hidden;
+        position: relative;
+    }
+    .persons-area .person{
+        width: 84%;
+        padding: 2vw;
+        background-color: white;
+        margin: auto;
+        border-radius: 2vw;
+        transition-duration: 1s;
+        box-shadow: 0 0 1vw 0.5vw rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        margin-top: 4vw;
+    }
+    .persons-area .person:hover{
+        box-shadow: 0 0 2vw 1vw rgba(0, 0, 0, 0.2);
+    }
+    .persons-area .person .text{
+        float: right;
+        width: 65%;
+        padding-left: 5%;
+    }
+    .persons-area .person img{
+        float: right;
+        width: 25%;
+        border-radius: 1vw;
+    }
+    .persons-area .person h1{
+        margin: 0;
+        padding-top: 1vw;
+        padding-bottom: 0.5vw;
+        color: var(--shutter);
+        font-family: 'iransans';
+        font-size: 3.5vw;
+    }
+    .persons-area .person p{
+        margin: 0;
+        font-family: 'iransans';
+        font-size: 3vw;
+        text-align: justify;
+    }
+    .persons-area .person .email{
+        color: rgb(97, 97, 97);
+        padding-top: 1vw;
+        display: inline;
+    }
+    .persons-area .person.center{
+        background-color: var(--shutter);
+    }
+    .persons-area .person.center h1{color: white;}
+    .persons-area .person.center p{color: rgb(233, 233, 233);}
+}

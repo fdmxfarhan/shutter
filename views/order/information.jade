@@ -1,0 +1,86 @@
+extends ../layout
+
+block styles
+    link(rel="stylesheet", href="/stylesheets/order.css")
+    //- script(src="https://www.google.com/recaptcha/api.js?render=_reCAPTCHA_site_key")
+block content
+    - var languagesFa = ['فارسی', 'انگلیسی (طلائی)', 'انگلیسی (نقره ای)', 'انگلیسی (برنزی)', 'عربی', 'ترکی', 'استانبولی', 'روسی', 'چینی', 'هندی', 'اردو', 'آلمانی', 'فرانسوی', 'کوردی'];
+    - var flags = ['persian', 'english', 'arabic', 'turkey', 'turkey', 'rus', 'chinese', 'india', 'pakistan', 'german', 'french', 'kurd'];
+    - var destlanguagesFa = ['فارسی', 'انگلیسی', 'عربی', 'ترکی', 'استانبولی', 'روسی', 'چینی', 'هندی', 'اردو', 'آلمانی', 'فرانسوی', 'کوردی'];
+    .order-area
+        .translation-panel
+            .line
+            .levels    
+                .level.active 
+                    .number ۱
+                    .text اطلاعات فردی
+                .level.second.active 
+                    .number ۲
+                    .text اطلاعات سفارش
+                .level.third
+                    .number ۳
+                    .text آپلود
+                .level.fourth
+                    .number ۴
+                    .text تکمیل فرایند
+            .register-part
+                form(action="/order/information" method="POST" value=)
+                    include message
+                    .right
+                        i.fa.fa-pencil.icon
+                        input.textinput(type="text" name="title" placeholder="عنوان ترجمه")
+                        br
+                        i.fa.fa-caret-left.icon
+                        label(for="baseLanguage") زبان مبداء: 
+                        select.textinput(name="baseLanguage")
+                            -for(var i=0; i<languagesFa.length; i++){
+                                option(value='#{languagesFa[i]}' style="background-image:url(/images/flags/persian.jpg);")
+                                    img.flag(src='/images/flags/persian.jpg')
+                                    | #{languagesFa[i]}
+                            -}
+                        br
+                        i.fa.fa-caret-right.icon
+                        label(for="destLanguage") زبان مقصد: 
+                        select.textinput(name="destLanguage")
+                            -for(var i=0; i<destlanguagesFa.length; i++){
+                                option(value='#{destlanguagesFa[i]}' style="background-image:url(/images/flags/persian.jpg);")
+                                    img.flag(src='/images/flags/persian.jpg')
+                                    | #{destlanguagesFa[i]}
+                            -}
+                        br
+                        i.fa.fa-clock-o.icon
+                        input.textinput(type="text" name="time" placeholder="مدت زمان پیشنهادی")
+                    .left
+                        textarea(name="description" placeholder="توضیحات بیشتر  (مانند لزوم ترجمه reference, نمودار ها یا هر اطلاعات دیگری پیرامون سفارش)")
+                        br
+                        input.submit(type="submit" value="مرحله بعدی") 
+        .sidebar-area
+            .order-sidebar
+                h1.title 
+                    i.fa.fa-info
+                    | راهنما
+                p
+                    | در این بخش میتونی اطلاعات سفارش ترجمه رو ثبت کنی. 
+                    | چنانچه لازم است مترجم شما اطلاعات بیشتری درباره سفارش (مانند لزوم ترجمه reference, نمودار ها یا هر اطلاعات دیگری پیرامون سفارش) مطلع باشد میتونی اون رو ذکر کنی. 
+                    | توجه داشته باشید که ترجمه از زبان انگلیسی میتونه بسته به نیاز شما با سه کیفیت و تعرفه متفاوت انجام بشه. 
+                    | با کلیک بر 
+                    a(href="#") اینجا 
+                    | درباره تعرفه های خدمات ترجمه و با کلیک بر 
+                    a(href="#") اینجا 
+                    | درباره تفاوت گروه های طلایی، نقره ای و برنزی مطالعه کن. 
+                    | با 
+                    a(href="#") این لینک 
+                    | هم به اوپراتور تلگرام متصل میشی.
+            .order-sidebar
+                h1.title گزینه ها
+                a.side-link#calculate-words
+                    i.fa.fa-calculator
+                    | محاسبه تخمینی کلمات
+                a.side-link#prices
+                    i.fa.fa-dollar
+                    | تعرفه ها
+                a.side-link#calculate-price.last 
+                    i.fa.fa-calculator
+                    | محاسبه تخمینی قیمت
+    include ./popups
+    script(src="/javascripts/order.js")

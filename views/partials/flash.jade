@@ -1,0 +1,17 @@
+link(rel="stylesheet", href="/stylesheets/message.css")
+
+- if(success_msg != ''){
+    .success
+        i.fa.fa-check.error-icon
+        | #{success_msg}
+- }
+- if(error_msg != ''){
+    .dismiss
+        i.fa.fa-exclamation-triangle.error-icon
+        | #{error_msg}
+- }
+- if(error != ''){
+    .dismiss
+        i.fa.fa-exclamation-triangle.error-icon
+        | #{error}
+- }

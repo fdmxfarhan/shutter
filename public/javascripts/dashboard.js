@@ -1,0 +1,79 @@
+$(document).ready(function(){
+    var cnt = 0;
+    $('#add-payment-modal').hide();
+    $('#add-payment-btn').click(function(){
+        $('#add-payment-modal').fadeIn(500);
+    });
+    $('#payment-close').click(function(){
+        $('#add-payment-modal').fadeOut(500);
+    });
+    $('#slide-toggler').click(function(){
+        $('#slide-modal').fadeIn(500);
+        $('#sidebar').fadeIn(500);
+    });
+    $('#slide-modal').click(function(){
+        $('#slide-modal').hide();
+        $('#sidebar').hide();
+    });
+    $('#message-close').click(function(){
+        $('.message-content').slideUp(500);
+    });
+    
+    $('#sign-in-modal').hide();
+    $('#sign-in').click(function(){
+        $('#sign-in-modal').fadeIn(500);
+    });
+    $('#signinclose').click(()=>{
+        $('#sign-in-modal').fadeOut(500);
+    });
+    $('#sign-in-sidebar').click(function(){
+        $('#sign-in-modal').fadeIn(500);
+    });
+    $('a.button-dropdown').click(function(){
+        $('.accept-request').slideDown(800);
+    });
+    $('#answer').click(function(){
+        $('form.ticket.ticket-answer').slideDown(500);
+    });
+
+    $('#percent').click(()=>{
+        $('#percent').addClass('active');
+        $('#price').removeClass('active');
+        $('#ispercent').attr('checked', 'checked');
+        $('#percentInput').show();
+        $('#priceInput').hide();
+    })
+    $('#price').click(()=>{
+        $('#price').addClass('active');
+        $('#percent').removeClass('active');
+        $('#ispercent').removeAttr("checked");
+        $('#percentInput').hide();
+        $('#priceInput').show();
+    })
+    $('#evryone').click(()=>{
+        $('#evryone').addClass('active');
+        $('#oneUser').removeClass('active');
+        $('#allUsers').attr('checked', 'checked');
+        $('#oneUserInput').hide();
+    })
+    $('#oneUser').click(()=>{
+        $('#oneUser').addClass('active');
+        $('#evryone').removeClass('active');
+        $('#allUsers').removeAttr("checked");
+        $('#oneUserInput').show();
+    })
+    
+    $('#add-offcode-btn').click(()=>{
+        $('#add-offcode-modal').fadeIn(500);
+        $('.add-offcode-panel').fadeIn(500);
+    });
+    $('#offcode-close').click(()=>{
+        $('#add-offcode-modal').hide();
+        $('.add-offcode-panel').hide();
+    })
+    $('#add-offcode-modal').click(()=>{
+        $('#add-offcode-modal').hide();
+        $('.add-offcode-panel').hide();
+    })
+    
+});

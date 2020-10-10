@@ -1,0 +1,82 @@
+@media only screen and (min-width: 600px) {
+    form.edit{
+        padding: 1.5vw 2vw;
+    }
+    label{
+        width: 15%;
+        display: inline-block;
+        font-family: 'iransans';
+        font-size: 1.2vw;
+    }
+    input.text-input{
+        margin-bottom: 1vw;
+        font-family: 'iransans';
+        font-size: 1vw;
+        padding: 0.3vw 1vw;
+        border: var(--shutter) 1px solid;
+        border-radius: 1vw;
+        width: 35%;
+        box-shadow: 0 0 0.6vw 0 rgba(0, 0, 0, 0.2);
+    }
+    input.text-input:focus{
+        outline: none;
+        border: chocolate 1px solid;
+    }
+    input.submit{
+        background-color: var(--shutter);
+        font-family: 'iransans';
+        font-size: 1.3vw;
+        border: none;
+        border-radius: 1vw;
+        margin-right: 1vw;
+        color: white;
+        padding: 0.2vw 2vw;
+        cursor: pointer;
+        transition-duration: 800ms;
+    }
+    input.submit:hover{
+        background-color: chocolate;
+        padding: 0.2vw 3vw;
+    }
+}
+@media only screen and (max-width: 600px) {
+    form.edit{
+        padding: 1.5vw 2vw;
+    }
+    label{
+        width: 27%;
+        display: inline-block;
+        font-family: 'iransans';
+        font-size: 3.2vw;
+    }
+    input.text-input{
+        margin-bottom: 3vw;
+        font-family: 'iransans';
+        font-size: 3vw;
+        padding: 0.8vw 3vw;
+        border: var(--shutter) 1px solid;
+        border-radius: 2.5vw;
+        width: 57%;
+        box-shadow: 0 0 0.6vw 0 rgba(0, 0, 0, 0.2);
+    }
+    input.text-input:focus{
+        outline: none;
+        border: chocolate 1px solid;
+    }
+    input.submit{
+        display: block;
+        background-color: var(--shutter);
+        font-family: 'iransans';
+        font-size: 3.3vw;
+        border: none;
+        border-radius: 2.5vw;
+        color: white;
+        padding: 0.8vw 5vw;
+        cursor: pointer;
+        transition-duration: 800ms;
+    }
+    input.submit:hover{
+        background-color: chocolate;
+        padding: 0.8vw 6vw;
+    }
+}

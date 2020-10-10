@@ -1,0 +1,21 @@
+extends ../layout
+block styles
+    link(rel="stylesheet", href="/stylesheets/dashboard.css")
+
+block content
+    .dashboard
+        include user-layout
+        .dashboard-cont
+            .container
+                h1.acount-header پرداخت صورت حساب
+                form.pre-factor(action="/payment/pay2" method="POST")
+                    input.hidden(type="text" name="id" value='#{payment._id}')
+                    label(for="offcode") اگر کد تخفیف دارید میتوانید در این قسمت وارد کنید. در غیر این صورت گزینه پرداخت را انتخاب نمایید.
+                    br
+                    .input-area
+                        i.fa.fa-gift
+                        input.text-input(type="text" name="offcode" placeholder="کد تخفیف")
+                    br
+                    input.submit(type="submit" value="پرداخت")
+                    
+    script(src="/javascripts/dashboard.js")

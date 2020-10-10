@@ -1,0 +1,113 @@
+.order-modal
+.pop-up.calculate-words-area
+    i.fa.fa-times.close-button
+    h1.title
+        i.fa.fa-calculator
+        | محاسبه کلمات متن
+    .popup-part
+        textarea#copy-text(name="text" placeholder="متن خود را در اینجا کپی کنید...")
+        br
+        button.clear() پاک کردن همه
+        br
+        i.fa.fa-caret-left.icon
+        label(for="baseLanguage") زبان مبداء: 
+        - var languagesFa = ['فارسی', 'انگلیسی (طلائی)', 'انگلیسی (نقره ای)', 'انگلیسی (برنزی)', 'عربی', 'ترکی', 'استانبولی', 'روسی', 'چینی', 'هندی', 'اردو', 'آلمانی', 'فرانسوی', 'کوردی'];
+        - var flags = ['persian', 'english', 'arabic', 'turkey', 'turkey', 'rus', 'chinese', 'india', 'pakistan', 'german', 'french', 'kurd'];
+        select.textinput#baseLanguage(name="baseLanguage")
+            -for(var i=0; i<languagesFa.length; i++){
+                option(value='#{languagesFa[i]}' style="background-image:url(/images/flags/persian.jpg);")
+                    img.flag(src='/images/flags/persian.jpg')
+                    | #{languagesFa[i]}
+            -}
+        br
+        - var destlanguagesFa = ['فارسی', 'انگلیسی', 'عربی', 'ترکی', 'استانبولی', 'روسی', 'چینی', 'هندی', 'اردو', 'آلمانی', 'فرانسوی', 'کوردی'];
+        i.fa.fa-caret-right.icon
+        label(for="destLanguage") زبان مقصد: 
+        select.textinput#destLanguage(name="destLanguage")
+            -for(var i=0; i<destlanguagesFa.length; i++){
+                option(value='#{destlanguagesFa[i]}' style="background-image:url(/images/flags/persian.jpg);")
+                    img.flag(src='/images/flags/persian.jpg')
+                    | #{destlanguagesFa[i]}
+            -}
+        button.calculate#calculate1 محاسبه
+    .popup-part
+        h1.popup-info
+            i.fa.fa-book
+            | تعداد کلمات: 
+            .value#words 
+        h1.popup-info
+            i.fa.fa-tag
+            | قیمت نهایی: 
+            .value#price 
+        p#lang-error 
+        p#count-error
+.pop-up.calculate-price-area
+    i.fa.fa-times.close-button
+    h1.title
+        i.fa.fa-calculator
+        | محاسبه تخمینی قیمت
+    .popup-part
+        i.fa.fa-book
+        input.textinput#words-input(type="number" name="words" placeholder="تعداد کلمات")
+        br
+        i.fa.fa-caret-left.icon
+        label(for="baseLanguage") زبان مبداء: 
+        select.textinput#baseLanguage1(name="baseLanguage")
+            -for(var i=0; i<languagesFa.length; i++){
+                option(value='#{languagesFa[i]}' style="background-image:url(/images/flags/persian.jpg);")
+                    img.flag(src='/images/flags/persian.jpg')
+                    | #{languagesFa[i]}
+            -}
+        br
+        i.fa.fa-caret-right.icon
+        label(for="destLanguage") زبان مقصد: 
+        select.textinput#destLanguage1(name="destLanguage")
+            -for(var i=0; i<destlanguagesFa.length; i++){
+                option(value='#{destlanguagesFa[i]}' style="background-image:url(/images/flags/persian.jpg);")
+                    img.flag(src='/images/flags/persian.jpg')
+                    | #{destlanguagesFa[i]}
+            -}
+        button.calculate#calculate2 محاسبه
+    .popup-part
+        h1.popup-info
+            i.fa.fa-book
+            | تعداد کلمات: 
+            .value#words1 
+        h1.popup-info
+            i.fa.fa-tag
+            | قیمت نهایی: 
+            .value#price1 
+        p#lang-error2
+        p#count-error2
+.pop-up.prices-area
+    i.fa.fa-times.close-button
+    h1.title
+        i.fa.fa-calculator
+        | تعرفه ها (به ازای هر کلمه)
+    .popup-part
+        p
+            .item ویراستاری فارسی ۴۰ تومان
+            .item انگلیسی به فارسی (طلائی) ۶۵ تومان
+            .item انگلیسی به فارسی (نقره ای) ۴۵ تومان
+            .item انگلیسی به فارسی (برنزی) ۲۵ تومان
+            .item فارسی به انگلیسی ۸۰ تومان
+            .item عربی  به فارسی ۸۵ تومان
+            .item فارسی به عربی ۸۵ تومان
+            .item روسی به فارسی ۱۶۰ تومان
+            .item فارسی به روسی ۱۹۰ تومان
+            .item چینی به فارسی ۳۱۰ تومان
+            .item فارسی به چینی ۴۱۰ تومان
+    .popup-part
+        p
+            .item ترکی به فارسی ۱۵۵ تومان
+            .item فارسی به ترکی ۱۸۵ تومان
+            .item آلمانی به فارسی ۱۸۵ تومان
+            .item فارسی به آلمانی ۲۰۵ تومان
+            .item فرانسه به فارسی ۱۸۵ تومان
+            .item فارسی به فرانسوی ۲۰۵ تومان
+            .item ایتالیایی به فارسی ۲۰۰ تومان
+            .item فارسی به ایتالیایی ۲۵۰ تومان
+            .item هندی به فارسی و بالعکس ۲۰۰ تومان
+            .item پاکستانی به فارسی و بالعکس ۲۰۰ تومان
+            .item کردی به فارسی و بالعکس ۲۰۰ تومان
+    h1.type در تمامی سفارشات (عکس یا تایپ شده) تایپ به صورت رایگان انجام می شود.

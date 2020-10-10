@@ -1,0 +1,274 @@
+@media only screen and (min-width: 800px) {
+    .login-area{
+        position: relative;
+        background-color: #eef1f8;
+        width: 70%;
+        padding: 2vw;
+        margin: 5% auto;
+        height: 75%;
+        border-radius: 2vw;
+        padding-top: 4vw;
+        margin-top: 7vw;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+    }
+    .login-area i#close-login{
+        color: black;
+        font-size: 1.5vw;
+        font-weight: normal;
+        position: absolute;
+        left: 2vw;
+        top: 2vw;
+        cursor: pointer;
+    }
+    .login-area i#close-login:hover{
+        color: chocolate;
+    }
+    button{
+        width: 48%;
+        background: none;
+        padding: 0.8vw 0;
+        border: none;
+        cursor: pointer;
+        border-bottom: rgb(0, 173, 239) 2px solid; 
+        font-size: 1.5vw;
+        font-family: 'iransans';
+        color: black;
+    }
+    button:focus{
+        outline: none;
+    }
+    button.active{
+        background-color: rgb(0, 173, 239);
+        color: white;
+    }
+    form#login, form#register{
+        width: 55%;
+        margin: 3vw auto;
+        display: block;
+    }
+    form#login *{display: block;}
+    form#login input.textarea{
+        width: 90%;
+        padding: 0.6vw 4vw 0.6vw 1vw;
+        border: rgb(0, 173, 239) 1px solid;
+        border-radius: 1.2vw;
+        margin-top: 3vw;
+        font-family: 'iransans';
+        font-size: 1vw;
+    }
+    form#login input.textarea:focus{outline: none;}
+    form#login .textpad{position: relative;}
+    form#login .textpad i{
+        position: absolute;
+        top: 0.7vw;
+        right: 1vw;
+        font-size: 1.4vw;
+        color: rgb(3, 100, 211);
+    }
+    form#login a{
+        text-decoration: none;
+        margin-top: 1vw;
+        font-family: 'iransans';
+        font-size: 1.1vw;
+    }
+    form#login .submit{
+        background-color: rgb(3, 100, 211);
+        padding: 0.5vw 0;
+        margin-top: 2vw;
+        color: white;
+        font-family: 'iransans';
+        width: 103%;
+        border: none;
+        cursor: pointer;
+        border-radius: 1vw;
+        font-size: 1.2vw;
+    }
+    form#login .submit:hover{
+        background-color: chocolate;
+    }
+    form#login h1{
+        color: rgb(3, 100, 211);
+        text-align: center;
+        width: 100%;
+        font-family: 'iransans';
+        font-size: 1.8vw;
+    }
+    form#login h1 i{
+        display: inline-block;
+        padding-left: 1vw;
+    }
+    form#register *{display: block;}
+    form#register input.textarea{
+        width: 90%;
+        padding: 0.6vw 4vw 0.6vw 1vw;
+        border: rgb(0, 173, 239) 1px solid;
+        border-radius: 1.2vw;
+        margin-top: 0.3vw;
+        font-family: 'iransans';
+        font-size: 1vw;
+    }
+    form#register input.textarea:focus{outline: none;}
+    form#register .textpad{position: relative;}
+    form#register .textpad i{
+        position: absolute;
+        top: 0.7vw;
+        right: 1vw;
+        font-size: 1.4vw;
+        color: rgb(3, 100, 211);
+    }
+    form#register .submit{
+        background-color: rgb(3, 100, 211);
+        padding: 0.5vw 0;
+        margin-top: 2vw;
+        color: white;
+        font-family: 'iransans';
+        width: 103%;
+        border: none;
+        cursor: pointer;
+        border-radius: 1vw;
+        font-size: 1.2vw;
+    }
+    form#register .submit:hover{
+        background-color: chocolate;
+    }
+    .margin-top-2vw{
+        margin-top: 2vw;
+    }
+}
+@media only screen and (max-width: 800px) {
+    .login-area{
+        position: relative;
+        background-color: #eef1f8;
+        width: 90%;
+        padding: 2vw;
+        margin: 5% auto;
+        height: 75%;
+        border-radius: 2vw;
+        padding-top: 4vw;
+        margin-top: 15vw;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+    }
+    .login-area i#close-login{
+        color: black;
+        font-size: 1.5vw;
+        font-weight: normal;
+        position: absolute;
+        left: 2vw;
+        top: 2vw;
+        cursor: pointer;
+    }
+    .login-area i#close-login:hover{
+        color: chocolate;
+    }
+    button{
+        width: 48%;
+        background: none;
+        padding: 0.8vw 0;
+        border: none;
+        cursor: pointer;
+        border-bottom: rgb(0, 173, 239) 2px solid; 
+        font-size: 3vw;
+        font-family: 'iransans';
+        color: black;
+    }
+    button:focus{
+        outline: none;
+    }
+    button.active{
+        background-color: rgb(0, 173, 239);
+        color: white;
+    }
+    form#login, form#register{
+        width: 90%;
+        margin: 3vw auto;
+        display: block;
+    }
+    form#login *{display: block;}
+    form#login input.textarea{
+        width: 90%;
+        padding: 1vw 6vw 1vw 1vw;
+        border: rgb(0, 173, 239) 1px solid;
+        border-radius: 2vw;
+        margin-top: 3vw;
+        font-family: 'iransans';
+        font-size: 2.5vw;
+    }
+    form#login input.textarea:focus{outline: none;}
+    form#login .textpad{position: relative;}
+    form#login .textpad i{
+        position: absolute;
+        top: 1.5vw;
+        right: 2vw;
+        font-size: 3vw;
+        color: rgb(3, 100, 211);
+    }
+    form#login a{
+        text-decoration: none;
+        margin-top: 1vw;
+        font-family: 'iransans';
+        font-size: 2.5vw;
+    }
+    form#login .submit{
+        background-color: rgb(3, 100, 211);
+        padding: 1vw 0;
+        margin-top: 2vw;
+        color: white;
+        font-family: 'iransans';
+        width: 99.5%;
+        border: none;
+        cursor: pointer;
+        border-radius: 2vw;
+        font-size: 3vw;
+    }
+    form#login .submit:hover{
+        background-color: chocolate;
+    }
+    form#login h1{
+        color: rgb(3, 100, 211);
+        text-align: center;
+        width: 100%;
+        font-family: 'iransans';
+        font-size: 3vw;
+    }
+    form#login h1 i{
+        display: inline-block;
+        padding-left: 1vw;
+    }
+    form#register *{display: block;}
+    form#register input.textarea{
+        width: 90%;
+        padding: 1vw 6vw 1vw 1vw;
+        border: rgb(0, 173, 239) 1px solid;
+        border-radius: 2vw;
+        margin-top: 2vw;
+        font-family: 'iransans';
+        font-size: 2.5vw;
+    }
+    form#register input.textarea:focus{outline: none;}
+    form#register .textpad{position: relative;}
+    form#register .textpad i{
+        position: absolute;
+        top: 1vw;
+        right: 2vw;
+        font-size: 3vw;
+        color: rgb(3, 100, 211);
+    }
+    form#register .submit{
+        background-color: rgb(3, 100, 211);
+        padding: 1vw 0;
+        margin-top: 2vw;
+        color: white;
+        font-family: 'iransans';
+        width: 99.5%;
+        border: none;
+        cursor: pointer;
+        border-radius: 2vw;
+        font-size: 3vw;
+    }
+    form#register .submit:hover{
+        background-color: chocolate;
+    }
+    .margin-top-2vw{
+        margin-top: 4vw;
+    }
+}

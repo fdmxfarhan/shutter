@@ -1,0 +1,38 @@
+extends ../layout
+block styles
+    link(rel="stylesheet", href="/stylesheets/dashboard.css")
+
+block content
+    .dashboard
+        include user-layout
+        .dashboard-cont
+            .container
+                h1.acount-header درخواست ترجمه #{translation.title}
+                a.remove(href=`/dashboard/remove-order?id=${translation._id}`) لغو درخواست &times;
+                .request-info
+                    .dashed-panel
+                        .item زبان مبداء: #{translation.baseLanguage}
+                        .item زبان مقصد: #{translation.destLanguage}
+                        .item توضیحات: #{translation.description}
+                        .item تعداد کلمات: #{translation.numberOfWords}
+                        .item تعداد صفحات: #{translation.numberOfPages}
+                        .item وضعیت پرداخت:‌ 
+                            -if(translation.payed)
+                                .green.inline پرداخت شده
+                            -else 
+                                .red.inline پرداخت نشده
+                    .textarea
+                        h1 متن ترجمه
+                        p= translation.text
+                a.download-link#accept(href=`/files/${translation.file}` download) 
+                    i.fa.fa-cloud-download
+                    | دانلود فایل ترجمه
+                -if(translation.status == 'ترجمه شده'){
+                    a.button-dropdown(href="#accept") دانلود فایل ترجمه شده
+                        i.fa.fa-chevron-down
+                    .accept-request
+                        a.download-link(href=`/files/${translation.translatedFile}` download)
+                            i.fa.fa-cloud-download
+                            | دانلود فایل نهایی ترجمه شده
+                -}
+    script(src="/javascripts/dashboard.js")

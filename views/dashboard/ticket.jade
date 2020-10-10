@@ -1,0 +1,32 @@
+extends ../layout
+block styles
+    link(rel="stylesheet", href="/stylesheets/dashboard.css")
+
+block content
+    .dashboard
+        include user-layout
+        .dashboard-cont
+            .container
+                h1.acount-header تیکت ها
+                a.half-button(href="/dashboard/ticket/add") + باز کردن تیکت
+                table.tickets
+                    tr
+                        th ردیف
+                        th عنوان تیکت
+                        th وضعیت 
+                        th مشاهده
+                        
+                    -for(var i=0; i<tickets.length; i++){
+                        tr
+                            td= i+1
+                            td= tickets[i].subject
+                            td= tickets[i].state
+                            td
+                                a(href="/dashboard/ticket/show?id=#{tickets[i]._id}")
+                                    i.fa.fa-eye
+                    -}
+                -if(tickets.length == 0){
+                    h1.no-ticket تیکتی جهت نمایش وجود ندارد
+                -}
+
+    script(src="/javascripts/dashboard.js")

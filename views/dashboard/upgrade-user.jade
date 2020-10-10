@@ -1,0 +1,25 @@
+extends ../layout
+block styles
+    link(rel="stylesheet", href="/stylesheets/dashboard.css")
+
+block content
+    .dashboard
+        include user-layout
+        .dashboard-cont
+            .container
+                h1.acount-header تغیر نقش کاربری #{upgradeUser.username}
+                .item نام و نام خانوادگی: #{upgradeUser.fullname}
+                .item ایمیل: #{upgradeUser.username}
+                .item تلفن: #{upgradeUser.phone}
+                .item نقش فعلی کاربر: #{upgradeUser.role}
+                .item دریافت خبرنامه: #{upgradeUser.newsLetter}
+                
+                h1.changeto تغییر به:
+                a.upgrade(href="/dashboard/upgradetoadmin?username=#{upgradeUser.username}") ادمین سایت
+                a.upgrade(href="/dashboard/upgradetotranslator?username=#{upgradeUser.username}") مترجم
+                a.upgrade(href="/dashboard/upgradetouser?username=#{upgradeUser.username}") کاربر عادی
+                a.upgrade(href="/dashboard/upgradetocontentor?username=#{upgradeUser.username}") مدیریت محتوا
+                a.remove(href="/dashboard/removeuser?id=#{upgradeUser._id}") 
+                    i.fa.fa-times 
+                    | حذف کاربر
+    script(src="/javascripts/dashboard.js")

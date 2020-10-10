@@ -1,0 +1,48 @@
+extends ../layout
+block styles
+    link(rel="stylesheet", href="/stylesheets/dashboard.css")
+
+block content
+    .dashboard
+        include user-layout
+        .dashboard-cont
+            .container
+                h1.acount-header درخواست ترجمه
+                .request-info
+                    .dashed-panel
+                        .item زبان مبداء: #{translation.baseLanguage}
+                        .item زبان مقصد: #{translation.destLanguage}
+                        .item ایمیل درخواست کننده: #{translation.username}
+                        .item توضیحات: #{translation.description}
+                        //- .item تعداد صفحات: #{translation.numberOfPages}
+                        .item تعداد کلمات: #{translation.numberOfWords}
+                        .item هزینه ترجمه: #{translation.price}
+                    .textarea
+                        h1 متن ترجمه
+                        p= translation.text
+                a.download-link#accept(href=`/files/${translation.file}` download) 
+                    i.fa.fa-cloud-download
+                    | دانلود فایل ترجمه
+                a.button-dropdown(href="#accept") شروع ترجمه
+                    i.fa.fa-chevron-down
+                .accept-request
+                    h1 دوست عزیزم امیدوارم که در انجام این پروژه موفق باشی
+                    h1 فقط لطفاً موارد زیر رو اول در نظر داشته باش تا خدایی نکرده مشکلی پیش نیاد
+                    .accept-item
+                        i.fa.fa-chevron-left
+                        | حواست به تایم و deadline ترجمه هست دیگه؟ مطمئنی میرسی انجام بدی؟ تاخیر شامل جریمه میشه‌ها
+                    .accept-item
+                        i.fa.fa-chevron-left
+                        |  متن رو خوندی؟ برات سخت نبود؟ میتونی از عهدش بربیای؟ اگه نتونی یا وسطش انصراف بدی هم شامل جریمه میشه، هم ممکنه تعلیق بشی
+                    .accept-item
+                        i.fa.fa-chevron-left
+                        | قول میدی از ترجمه ماشینی براش استفاده نکنی؟ زیبایی در جزئیاته و مشتری هم کار زیبا میخواد پس خودت ترجمه میکنی دیگه؟ اگه سفارش برگشت بخوره کار خودت زیاد میشه‌ها
+                    .accept-item
+                        i.fa.fa-chevron-left
+                        | قوائد نگارشی و نکات ویرایشی رو رعایت میکنی دیگه؟ همون قضیه زیبایی و جزئیات...
+                    .accept-item
+                        i.fa.fa-chevron-left
+                        | راستی اگه این سفارش رو قبول کنی به تعهدات عدم افشا اطلاعات پایبند خواهی بود و تحت هیچ شرایطی نباید متن رو در اختیار دیگران بذاری
+                    a.button(href=`/dashboard/accept-request?id=${translation._id}`) موارد بالا رو بررسی کردم و سفارش رو به خوبی انجام خواهم داد
+                        i.fa.fa-chevron-left
+    script(src="/javascripts/dashboard.js")

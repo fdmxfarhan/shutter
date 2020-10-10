@@ -1,0 +1,62 @@
+extends ../layout
+block styles
+    link(rel="stylesheet", href="/stylesheets/dashboard.css")
+
+block content
+    .dashboard
+        include user-layout
+        .dashboard-cont
+            .container
+                h1.acount-header صورت حساب ها
+                table.users
+                    tr
+                        th نام و نام خانوادگی
+                        th نام کاربری
+                        //- th پست الکترونیکی
+                        th تلفن
+                        th توضیحات
+                        th مبلغ
+                        th وضعیت
+                        th عملیات
+                    - for(var i=0 ; i<payments.length ; i++){
+                        tr
+                            td= payments[i].fullname
+                            td= payments[i].username
+                            td= payments[i].phone
+                            td= payments[i].description
+                            td= payments[i].amount
+                            td 
+                                -if(payments[i].payed)
+                                    .green پرداخت شده
+                                -else
+                                    .red پرداخت نشده
+                            td 
+                                - if(user.role == 'admin'){
+                                    a.change-role-link(href=`/dashboard/remove?id=${payments[i]._id}`) حذف
+                                - } else if(!payments[i].payed){
+                                    a.change-role-link(href=`/dashboard/pre-factor?id=${payments[i]._id}`) پرداخت
+                                - }
+                    - } 
+                - if(user.role == 'admin'){
+                    a.add-payment#add-payment-btn
+                        i.fa.fa-plus.icon
+                        | صدور صورت حساب جدید
+                - }
+    - if(user.role == 'admin'){
+        .add-payment-modal#add-payment-modal
+            .add-payment-panel
+                span.close#payment-close &times;
+                h1.title صدور صورت حساب جدید
+                form(action="/payment/add" method="POST")
+                    label.block(for="username") نام کاربری پرداخت کننده:
+                    select.block.input(name="username" required)
+                        - for(var i=0; i<users.length ; i++){
+                            option.class1(value="#{users[i].username}")= users[i].username
+                        - }
+                    label.block(for="amount") مبلغ (ریال):
+                    input.block.input(type="number" name="amount" placeholder="Amount" required)
+                    label.block(for="amount") توضیحات:
+                    textarea.block(type="number" name="description" placeholder="Description")
+                    input.block.submit(type="submit" value="صدور صورت حساب")
+    - }
+    script(src="/javascripts/dashboard.js")

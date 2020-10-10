@@ -1,0 +1,44 @@
+extends ../layout
+block styles
+    link(rel="stylesheet", href="/stylesheets/dashboard.css")
+
+block content
+    .dashboard
+        include user-layout
+        .dashboard-cont
+            .container
+                h1.acount-header درخواست ترجمه #{translation.title}
+                .request-info
+                    .dashed-panel
+                        .item زبان مبداء: #{translation.baseLanguage}
+                        .item زبان مقصد: #{translation.destLanguage}
+                        .item ایمیل درخواست کننده: #{translation.username}
+                        .item تلفن درخواست کننده: #{translation.phone}
+                        .item توضیحات: #{translation.description}
+                        .item تعداد کلمات: #{translation.numberOfWords}
+                        //- .item تعداد صفحات: #{translation.numberOfPages}
+                        .item هزینه ترجمه: #{translation.price} ریال
+                    .textarea
+                        h1 متن ترجمه
+                        p= translation.text
+                a.download-link#accept(href=`/files/${translation.file}` download) 
+                    i.fa.fa-cloud-download
+                    | دانلود فایل ترجمه
+                a.button-dropdown(href="#accept") آپلود فایل ترجمه
+                    i.fa.fa-chevron-down
+                .accept-request
+                    form.upload(action="/upload/translator" enctype="multipart/form-data" method="POST")
+                        input.hidden(type="text" name="id" value='#{translation._id}') 
+                        include message
+                        .right-cont
+                            .upload-area فایل خود را انتخاب کنید
+                                i.fa.fa-cloud-upload
+                                input.file(type="file" name="myFile") 
+                            br
+                        .center-cont یا
+                        .left-cont
+                            textarea.uploadtext(name="text" placeholder="متن خود را در اینجا کپی کنید")
+                            br
+                        input.submit(type="submit" value="ارسال") 
+                        br
+    script(src="/javascripts/dashboard.js")

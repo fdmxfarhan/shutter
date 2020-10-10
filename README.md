@@ -1,2 +1,1 @@
-# shutter
-Shutterco Web Application
+## Shutter translation company

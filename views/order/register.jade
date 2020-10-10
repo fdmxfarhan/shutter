@@ -1,0 +1,69 @@
+extends ../layout
+
+block styles
+    link(rel="stylesheet", href="/stylesheets/order.css")
+    //- script(src="https://www.google.com/recaptcha/api.js?render=_reCAPTCHA_site_key")
+block content
+    .order-area
+        .translation-panel
+            .line
+            .levels    
+                .level.active 
+                    .number ۱
+                    .text اطلاعات فردی
+                .level.second
+                    .number ۲
+                    .text اطلاعات سفارش
+                .level.third
+                    .number ۳
+                    .text آپلود
+                .level.fourth
+                    .number ۴
+                    .text تکمیل فرایند
+            .register-part
+                a.registered(href="/user/login")
+                    i.fa.fa-user-tie.return-icon
+                    | قبلا عضو شاتر بوده اید؟
+                form(action="/order/register" method="POST" value=)
+                    include message
+                    .right
+                        i.fa.fa-user-o.icon
+                        input.textinput(type="text" name="firstname" placeholder="نام")
+                        br
+                        i.fa.fa-user.icon
+                        input.textinput(type="text" name="lastname" placeholder="نام خانوادگی")
+                        br
+                        i.fa.fa-envelope.icon
+                        input.textinput(type="email" name="username" placeholder="ایمیل")
+                        br
+                    .left
+                        i.fa.fa-phone.icon
+                        input.textinput(type="number" name="phone" placeholder="تلفن")
+                        i.fa.fa-key.icon
+                        input.textinput(type="password" name="password" placeholder="کلمه عبور")
+                        br
+                        i.fa.fa-check.icon
+                        input.textinput(type="password" name="password2" placeholder="تکرار کلمه عبور")
+                        br
+                        //- div(class="g-recaptcha" data-sitekey="6LeCL_kUAAAAAHd1HwsB1KV7USQcDNEl5lIMso8N")
+                        input.submit(type="submit" value="مرحله بعدی")
+        .sidebar-area
+            .order-sidebar
+                h1.title 
+                    i.fa.fa-info
+                    | راهنما
+                p
+                    | برای ایجاد درخواست ترجمه لازم است اطلاعات فردی خود را در این قسمت به درستی وارد نمایید. وجود اشکال در ثبت پست الکترونیکی ارسال ترجمه را با اخلال مواجه می کند. پست الکترونیکی در ادامه نام کاربری شما خواهد بود
+            .order-sidebar
+                h1.title گزینه ها
+                a.side-link#calculate-words
+                    i.fa.fa-calculator
+                    | محاسبه تخمینی کلمات
+                a.side-link#prices
+                    i.fa.fa-dollar
+                    | تعرفه ها
+                a.side-link#calculate-price.last 
+                    i.fa.fa-calculator
+                    | محاسبه تخمینی قیمت
+    include ./popups
+    script(src="/javascripts/order.js")

@@ -1,0 +1,19 @@
+extends ../layout
+block styles
+    link(rel="stylesheet", href="/stylesheets/t-register.css")
+
+block content
+    .main-container
+        .sidebar-area
+            h1 مترجم عزیز
+            p خوشحالیم که از آزمون ورودی سربلند بیرون اومدی و امیدواریم که علاوه بر حفظ کیفیت، رشد و ارتقای سطح کیفی کارت رو شاهد باشیم.
+        .content-box
+            form.code(action="/user/verify-code" method="POST")
+                label(for="code") کد معرفی:
+                input(type="text" name="code")
+                input(type="submit" value="بررسی")
+                .info-text لطفا کدی که پس از قبولی در آزمون دریافت کردی رو اینجا وارد کن تا علاوه بر تایید هویت، حساب کاربری اختصاصی خودت برات فعال بشه. کلیه فرایندهای آزمون به صورت آنلاین پیگیری میشه پس میتونی کد رو بازیابی کنی. یادت باشه صحت اطلاعات وارد شده رو در صفحه بعد بررسی و یا اصلاح کنی.
+                a.get-code(href="#") 
+                    i.fa.fa-chevron-left
+                    | دریافت کد معرفی
+    script(src="/javascripts/t-register.js")

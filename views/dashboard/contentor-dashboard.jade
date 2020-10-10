@@ -1,0 +1,55 @@
+extends ../layout
+block styles
+    link(rel="stylesheet", href="/stylesheets/dashboard.css")
+
+block content
+    .dashboard
+        include user-layout                
+        .dashboard-cont
+            .top-cont
+                .personal-info
+                    h1.acount-header اطلاعات شخصی
+                    table
+                        tr
+                            th 
+                                .title نام و نام خانوادگی:
+                                .text= fullname
+                            th 
+                                .title پست الکترونیکی:
+                                .text= user.username
+                        tr
+                            td 
+                                .title شماره تماس:
+                                .text= user.phone
+                            td 
+                                .title دریافت خبرنامه:
+                                .text خیر
+                    a.edit-link(href="#")
+                        .edit-link-pad
+                            i.fa.fa-edit.link-icon
+                            | ویرایش اطلاعات شخصی
+                .last-translations
+                    h1.acount-header محتوا های من
+                    .translations-pad
+                        -if(contents.length == 0)
+                            h1.no-translation هنوز محتوایی ثبت نشده
+                        -else{
+                            table
+                                -for(var i=0; i<contents.length; i++){
+                                    tr
+                                        td.icon
+                                            i.fa.fa-copy
+                                        td.text #{contents[i].title}
+                                        td.text #{contents[i].view}
+                                        td.icon-link
+                                            a.table-link(href=`/blog/content?id=${contents[i]._id}`)
+                                                i.fa.fa-eye
+                                -}
+                        -}
+                    a.edit-link(href="#")
+                        .edit-link-pad
+                            i.fa.fa-edit.link-icon
+                            | مشاهده همه ترجمه ها
+            .bottom-cont
+                h1.acount-header آخرین اخبار
+                

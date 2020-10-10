@@ -1,0 +1,84 @@
+extends ../layout
+block styles
+    link(rel="stylesheet", href="/stylesheets/blog.css")
+
+block content
+    .top-slideshow
+        .imgpad
+            img(src="/images/blog/covid19.jpg")
+            .text
+                h1 مبارزه با ویروس کرونا
+                p لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، 
+        .imgpad
+            img(src="/images/blog/covid19.jpg")
+            .text
+                h1 مبارزه با ویروس کرونا
+                p لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، 
+    .newspad
+        .titlepad
+            h1.title مطالب برتر
+        .imgpad
+            img(src="/images/blog/img-01.png")
+            .text تایتل عکس
+        .imgpad
+            img(src="/images/blog/img-02.png")
+            .text تایتل عکس
+        .imgpad
+            img(src="/images/blog/img-03.png")
+            .text تایتل عکس
+        .imgpad
+            img(src="/images/blog/img-04.png")
+            .text تایتل عکس
+        .imgpad
+            img(src="/images/blog/img-05.png")
+            .text تایتل عکس
+        .imgpad
+            img(src="/images/blog/img-02.png")
+            .text تایتل عکس
+    .news-main-pad
+        .news-cont-pad
+            .news-sidebar
+                .sidebar-card
+                    h1.side-title پربازدید ترین مطالب
+                    -for(var i=0; i<contents.length; i++){
+                        a.side-link(href="/blog/content?id=#{contents[i]._id}")= contents[i].title
+                        .link-border
+                    -}
+                    -if(user && user.role != 'user')
+                        a.add-content-link(href="/blog/add") + افزودن محتوا
+                .sidebar-card
+                    -var categories = ['آموزشی', 'ترجمه', 'معرفی مترجم', 'معرفی کتاب', 'محیط زیست', 'داستان', 'خدمات شاتر'];
+                    h1.side-title دسته بندی
+                    -for(var i=0; i<categories.length; i++){
+                        a.side-link(href='/blog/category?category=#{categories[i]}')= categories[i]
+                        .link-border
+                    -}
+            .news-cont
+                block blog-content    
+            block comments
+            
+    .newspad
+        .titlepad
+            h1.title  مطالب ویژه
+        .imgpad
+            img(src="/images/blog/img-01.png")
+            .text تایتل عکس
+        .imgpad
+            img(src="/images/blog/img-02.png")
+            .text تایتل عکس
+        .imgpad
+            img(src="/images/blog/img-03.png")
+            .text تایتل عکس
+        .imgpad
+            img(src="/images/blog/img-04.png")
+            .text تایتل عکس
+        .imgpad
+            img(src="/images/blog/img-05.png")
+            .text تایتل عکس
+        .imgpad
+            img(src="/images/blog/img-02.png")
+            .text تایتل عکس
+    .sidebar-modal
+    .sidebar-toggle
+        i.fa.fa-chevron-left
+    script(src="/javascripts/blog.js")

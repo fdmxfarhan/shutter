@@ -1,0 +1,161 @@
+doctype html
+
+html
+  head
+    title شبکه ارتباطی ترجمه
+    link(rel='stylesheet', href='/stylesheets/index.css')
+    block styles
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+    link(rel="stylesheet", href="/stylesheets/login-popup.css")
+    //- script(src="/font.js" crossorigin="anonymous")
+    //- link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
+    link(rel = "icon" type = "image/png" href = "/images/logo.png")
+    script(src="/javascripts/jquery-1.6.4.min.js")
+    script(src="/javascripts/index.js")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(name="theme-color" content="#00adef")
+
+  body
+    -if(user){
+      .dropdown#dropdownuser
+        a(href="/dashboard")
+          .acount-link
+            .picture-pad
+              i.fa.fa-user.acound-icon
+            h1.uname= user.username
+            h1.enter-panel ورود به پنل کاربری
+              i.fa.fa-chevron-left.enter-icon
+        .link-border
+        a.dropdown-link(href="/dashboard")
+          i.fa.fa-tags.icon
+          | سفارش های من
+        .link-border
+        a.dropdown-link(href="/order/information")
+          i.fa.fa-language.icon
+          | ثبت سفارش
+        .link-border
+        a.dropdown-link(href="#")
+          i.fa.fa-cog.icon
+          | تنظیمات حساب
+        .link-border
+        a.dropdown-link.logoutbtn(href="/user/logout")
+          i.fa.fa-sign-out.icon
+          | خروج
+    -}
+    .nav-modal
+    nav
+        button.navbar-toggler
+            i.fa.fa-list-ul
+        .collapse#navbarcontent
+            a.nav-link.active(href='/') صفحه اصلی
+            a.nav-link(href='/blog/home') بلاگ
+            a.nav-link(href='/order/register') ثبت سفارش
+            a.nav-link(href='/about') درباره ما
+            a.nav-link.last(href='#section2') تماس با ما
+        a.info(href="/about")
+            img.info(src="/images/index/question.png")
+        -if(!user){
+            a.login#login-link ورود / ثبت نام
+        -}else{
+            button.userbtn
+                i.fa.fa-user.user-icon
+                i.fa.fa-chevron-down.down-icon
+        -}
+    include ./partials/login
+    header
+        h1.title شـــــاتـــــر
+        h1.under-title شـــبــکه ارتــبــاطـــی تــرجــمـــه
+        .text-holder
+            .textarea
+                p.text#text1 شاتر یا همون شبکه ارتباطی ترجمه بستری تخصصی برای انجام سفارشات ترجمه ای شماست. اگه به ترجمه نیاز داری و نمیخوای دنبال مترجم بگردی همراه شاتر میتونی با اطمینان کار رو به یه مترجم بسپاری و همزمان بدون دردسر به اشتغالزایی جوان ترها هم کمک کنی
+                p.text#text2 شاتر حامی محیط زیسته و با برپایی کمپین #نه_به_کاغذ بهتون قول میده که در فرایند ترجمه هرگز از کاغذ استفاده نمیشه
+                p.text#text3 برای آشنایی بیشتر با ما حتما یه سر به اینستاگرام ، بلاگ سایت و بقیه شبکه های ارتباطیمون بزن
+        i.fa.fa-chevron-left.next
+        i.fa.fa-chevron-right.prev
+        a.begin(href="/order/register") شروع ترجمه
+        img#img1(src="/images/index/translate.png")
+        img#img2(src="/images/index/paper.png")
+        img#img3(src="/images/index/shutter.png")
+        a(href="#section1")
+            img.chevron(src="/images/index/chevron.png")
+    section#section1
+        h1.title ترجمه متون شما در سه مرحله
+        img(src="/images/index/steps.png")
+    section#section2
+        h1.title با ما همراه باشید
+        p.text با دنبال کردن شبکه های اجتماعی ما می‌تونید علاوه بر دریافت محتواهای مفید هفتگی، ثبت سفارشات ترجمه رو با همکاری اوپراتور انجام بدید. یادتون باشه با حمایت و معرفی شاتر به دوستاتون در شبکه های اجتماعی می تونید ازش حمایت کنید. شاتر در اینستاگرام، تلگرام، توییتر و سروش در دسترس شماست.
+        .links
+            a(href="https://instagram.com/shutterco_")
+                img(src="/images/index/instagram.png")
+            a(href="http://t.me/shutterco")
+                img(src="/images/index/telegram.png")
+            a(href="https://twitter.com/Shutterco2?s=09")
+                img(src="/images/index/twiter.png")
+        a(href="https://instagram.com/shutterco_")
+            img.img1(src="/images/index/instagram.png")
+        a(href="http://t.me/shutterco")
+            img.img2(src="/images/index/telegram.png")
+        a(href="https://twitter.com/Shutterco2?s=09")
+            img.img3(src="/images/index/twiter.png")
+    section#section3
+        h1.title فعالیت های شاتر
+        .card-content
+            .partial
+                .circle
+                    h1 ۱۲
+                    p زبان پشتیبانی شده
+            .partial
+                .circle
+                    h1 ۵۰+
+                    p کارآفرینی برای بیش از ۵۰ نفر
+            .partial
+                .circle
+                    h1 ۳ روز
+                    p ضمانت خدمات
+    section#section4
+        h1 به ما بپیوندید
+        p اگه خودت رو یه مترجم فوق‌العاده می‌دونی که می‌تونه از زبانی به زبانی دیگر و با کیفیتی عالی ترجمه کنه جات پیش ما خالیه. تیم شاتر همواره از حضور مترجمان در کنار خودش استقبال می‌کنه پس اگه می‌خوای از مهارتت در ترجمه کسب درآمد کنی روی لینک زیر کلیک کن
+        a(href="/user/translator-register") ثبت نام به عنوان مترجم
+        img(src="/images/index/translator.png")
+    footer
+        ul
+            li
+                a(href="/") 
+                    i.fa.fa-caret-left
+                    | صفحه اصلی
+            li
+                a(href="/blog") 
+                    i.fa.fa-caret-left
+                    | بلاگ
+            li
+                a(href="/order/register") 
+                    i.fa.fa-caret-left
+                    | ثبت سفارش
+            li
+                a(href="/about") 
+                    i.fa.fa-caret-left
+                    | درباره ما
+            li
+                a(href="/contact") 
+                    i.fa.fa-caret-left
+                    | تماس با ما
+        form(action="/")
+            h1
+                i.fa.fa-envelope-o
+                | عضویت در خبرنامه
+            input(type="email" name="email" placeholder="آدرس ایمیل خود را وارد کنید")
+            input(type="submit" value="ثبت")
+        //- h1.phone 
+        //-     i.fa.fa-phone
+        //-     | 09194624722
+        h1.email
+            i.fa.fa-envelope
+            | shutterproje@gmail.com
+        .links
+            a(href="https://instagram.com/shutterco_")
+                img(src="/images/index/instagram.png")
+            a(href="http://t.me/shutterco")
+                img(src="/images/index/telegram.png")
+            a(href="https://twitter.com/Shutterco2?s=09")
+                img(src="/images/index/twiter.png")
+        h1.down-title شبکه ارتباطی ترجمه

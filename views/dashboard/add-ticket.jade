@@ -1,0 +1,24 @@
+extends ../layout
+block styles
+    link(rel="stylesheet", href="/stylesheets/dashboard.css")
+
+block content
+    .dashboard
+        include user-layout
+        .dashboard-cont
+            .container
+                h1.acount-header ارسال تیکت
+                form.ticket(action="/dashboard/ticket/add" method="POST")
+                    .input-area
+                        i.fa.fa-user
+                        input(type="text" name="fullname" placeholder="نام و نام خانوادگی" value = "#{user.fullname}")
+                    .input-area
+                        i.fa.fa-envelope
+                        input(type="text" name="email" placeholder="پست الکترونیکی (E-mail)" value = "#{user.username}")
+                    .input-area
+                        i.fa.fa-pencil
+                        input(type="text" name="subject" placeholder="موضوع تیکت")
+                    textarea(name="text" placeholder="پیام خود را اینجا بنویسید...")
+                    br
+                    input.submit(type="submit" value="ارسال")
+    script(src="/javascripts/dashboard.js")

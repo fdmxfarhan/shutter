@@ -1,0 +1,596 @@
+@font-face {
+    font-family:'bnazanin';
+    src:url('b_nazanin.ttf');
+}
+@font-face {
+    font-family:'iransans';
+    src:url('IRANSans.ttf');
+}
+@font-face {
+    font-family:'btitr';
+    src:url('b_titr.ttf');
+}
+html{
+    scroll-behavior: smooth;
+}
+:root {
+    --color1: #388af5;
+    --hover: #F06543;
+    --blue: rgb(0, 173, 239);
+    --green: rgb(19, 138, 19);
+    --shutter: rgb(72, 130, 236);
+    --bgcolor: #8f8f8f;
+    --bghover: #a7a7a7;
+    --loginbg: #473ab88e;
+    --loginhv: #473ab8;
+    --textcolor: rgb(77, 77, 77);
+}
+body{
+    text-align: right;
+    direction: rtl;
+    font-family: 'iransans';
+    margin: 0;
+    padding: 0;
+}
+@media only screen and (min-width: 600px) {
+    nav{
+        background-color: rgba(255, 255, 255, 0.856);
+        opacity: 0.99;
+        overflow: hidden;
+        top: 0;
+        padding: 0 15vw;
+        border-bottom: lightgray 1px solid;
+        position: fixed;
+        width: 100%;
+        z-index: 1;
+    }
+    nav:hover{
+        background-color: rgba(255, 255, 255, 1);
+    }
+    nav a.nav-link{
+        float: right;
+        text-decoration: none;
+        color: rgb(44, 44, 44);
+        padding: 0.7vw 1vw;
+        margin: 0;
+        font-family: 'iransans';
+        font-size: 1.1vw;
+    }
+    nav a.nav-link:hover{
+        border-bottom: blue 3px solid;
+    }
+    nav a.nav-link.active{
+        border-bottom: blue 3px solid;
+    }
+    nav button.navbar-toggler{
+        border: none;
+        display: none;
+    }
+    nav a.login{
+        float: right;
+        border: rgb(243, 243, 243) 1px solid;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: bold;
+        color: blue;
+        padding: 0.3vw 1vw;
+        margin-top: 0.5vw;
+        margin-right: 10px;
+        font-family: 'iransans';
+        font-size: 0.9vw;
+    }
+    nav a.login:hover{
+        /* background-color: rgb(219, 238, 245); */
+        border: blue 1px solid;
+    }
+
+    .shutterheader{
+        position: fixed;
+        z-index: 10;
+        left: 0;
+        top: 0;
+        width: 30vw;
+    }
+    .shutterheader img{
+        width: 100%;
+    }
+
+    .topnavlogo{
+        position: fixed;
+        z-index: 10;
+        right: 7vw;
+        top: 5px;
+        width: 5%;
+    }
+    .topnavlogo img{
+        width: 100%;
+    }
+    .userbuttonpad{
+        position: relative;
+    }
+    button.userbtn{
+        border: none;
+        background-color: transparent;
+        margin-top: 0.3vw;
+        margin-right: 16vw;
+        font-size: 1.5vw;
+        padding: 0.3vw;
+        cursor: pointer;
+    }
+    .user-icon{
+        color: rgb(0, 132, 255);
+        margin-left: 10px;
+    }
+    .down-icon{
+        color: rgb(0, 132, 255);
+        font-size: 10px;
+    }
+    .dropdown{
+        position: fixed;
+        background-color: rgb(255, 255, 255);
+        top: 3.5vw;
+        left: 30vw;
+        width: 200px;
+        box-shadow: 0 10px 8px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 2px;
+        padding: 0;
+        text-align: center;
+        z-index: 10;
+        display: none;
+    }
+    .dropdown a.dropdown-link{
+        display: block;
+        padding: 10px 20px;
+        font-family: 'iransans';
+        font-size: 1vw;
+        text-decoration: none;
+        width: 160px;
+        text-align: right;
+        color: var(--textcolor);
+    }
+    .dropdown a.dropdown-link:hover{
+        background-color: rgb(224, 224, 224);
+    }
+    .dropdown .acount-link{
+        position: relative;
+        margin: 0;
+        height: 70px;
+    }
+    .dropdown .acount-link .picture-pad{
+        background-color: rgb(206, 206, 206);
+        position: absolute;
+        top: 15px;
+        right: 8px;
+        margin: 0;
+        color: white;
+        font-size: 2vw;
+        padding: 0.1vw 0.6vw 0 0.6vw;
+        border-radius: 50%;
+    }
+    .dropdown .acount-link h1.uname{
+        color: var(--textcolor);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 0.9vw;
+        text-decoration: none;
+        border: none;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+    .dropdown .acount-link h1.enter-panel{
+        color: var(--textcolor);
+        font-family: 'iransans';
+        color: blue;
+        font-size: 0.9vw;
+        text-decoration: none;
+        border: none;
+        position: absolute;
+        top: 30px;
+        left: 2vw;
+    }
+    .enter-icon{
+        color: blue;
+        margin-right: 10px;
+    }
+    .dropdown .acount-link:hover{
+        background-color: rgb(224, 224, 224);
+    }
+    .dropdown .link-border{
+        background-color: rgb(216, 215, 215);
+        width: 70%;
+        height: 1px;
+        margin-right: 30px;
+    }
+    a.dropdown-link.logoutbtn{
+        color: rgb(252, 21, 21);
+    }
+    .dropdown .icon{
+        margin-left: 7px;
+        font-size: 14px;
+    }
+    /* ----------------------- footer ------------------- */
+    footer{
+        background-color: var(--shutter);
+        overflow: hidden;
+        width: 100%;
+        height: 17vw;
+        position: relative;
+        padding-top: 4vw;
+    }
+    footer ul{
+        margin-top: 1vw;
+        float: right;
+        width: 20%;
+        margin-right: 4vw;
+        list-style: none;
+        line-height: 2vw;
+    }
+    footer ul li{
+        margin: 0.2vw 0;
+        padding: 0;
+    }
+    footer li a{
+        font-size: 1.2vw;
+        color: white;
+        text-decoration: none;
+        margin: 0;
+        padding: 0;
+    }
+    footer li a:hover{
+        text-decoration: underline;
+    }
+    footer li a i{
+        padding-left: 1vw;
+    }
+    footer form{
+        float: right;
+        height: 12vw;
+        width: 35%;
+        padding-right: 5%;
+        margin-left: 5%;
+        border-left: white 1px solid;
+        border-right: white 1px solid;
+    }
+    footer form h1{
+        color: white;
+        font-size: 1.3vw;
+        font-family: 'iransans';
+        margin-bottom: 2vw;
+        margin-top: 2vw;
+    }
+    footer form h1 i{
+        padding-left: 1vw;
+    }
+    footer form input[type=email]{
+        background-color: white;
+        width: 60%;
+        font-size: 1vw;
+        padding: 0.3vw 1vw;
+        border: lightgray 1px solid;
+        font-family: 'iransans';
+    }
+    footer form input[type=submit]{
+        background-color: var(--green);
+        font-size: 1vw;
+        padding: 0.3vw 1vw;
+        color: white;
+        border: var(--green) 1px solid;
+        font-family: 'iransans';
+        cursor: pointer;
+    }
+    footer form input[type=submit]:hover{
+        background-color: var(--hover);
+        border: var(--hover) 1px solid;
+    }
+    footer h1.phone{
+        color: white;
+        font-size: 1.2vw;
+    }
+    footer h1.email{
+        color: white;
+        font-size: 1.2vw;
+    }
+    footer h1.phone i,footer h1.email i{
+        color: orange;
+        padding-left: 1vw;
+        font-size: 1.5vw;
+    }
+    footer .links{
+        position: absolute;
+        left: 5vw;
+        bottom: 2vw;
+    }
+    footer .links img{
+        width: 4vw;
+        margin: 0 0.5vw;
+    }
+    footer h1.down-title{
+        color: white;
+        position: absolute;
+        bottom: 0;
+        left: 45%;
+        font-size: 1.2vw;
+    }
+
+}
+@media only screen and (max-width: 600px) {
+    nav{
+        background-color: rgba(255, 255, 255, 0.856);
+        opacity: 0.99;
+        overflow: hidden;
+        top: 0;
+        border-bottom: lightgray 1px solid;
+        position: fixed;
+        width: 100%;
+        z-index: 1;
+    }
+    nav:hover{
+        background-color: rgba(255, 255, 255, 1);
+    }
+    #navbarSupportedContent.collapse{
+        display: none;
+    }
+    nav a.nav-link{
+        display: block;
+        text-decoration: none;
+        color: rgb(44, 44, 44);
+        padding: 2vw 0;
+        margin: 0;
+        width: 80%;
+        margin: auto;
+        text-align: center;
+        font-family: 'iransans';
+        font-size: 3vw;
+        border-bottom: lightgray 1px solid;
+    }
+    nav a.nav-link:hover, nav a.nav-link.active{
+        color: var(--blue);
+    }
+    nav button.navbar-toggler{
+        float: right;
+        border: none;
+        background: none;
+        color: rgb(0, 173, 239);
+        font-size: 5vw;
+        margin-right: 5vw;
+        padding-top: 1.5vw;
+        padding-bottom: 1.5vw;
+        width: auto;
+    }
+    nav a.login{
+        float: left;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: bold;
+        color: blue;
+        font-family: 'iransans';
+        font-size: 3vw;
+        margin-left: 25vw;
+        margin-top: 3vw;
+    }
+    nav a.login:hover{
+        /* background-color: rgb(219, 238, 245); */
+        border: blue 1px solid;
+    }
+    .shutterheader{
+        display: none;
+    }
+    .topnavlogo{
+        position: fixed;
+        z-index: 10;
+        left: 7vw;
+        top: 5px;
+        width: 10%;
+    }
+    .topnavlogo img{
+        width: 100%;
+    }
+    .userbuttonpad{
+        position: relative;
+    }
+    button.userbtn{
+        border: none;
+        float: left;
+        background-color: transparent;
+        margin-top: 1.5vw;
+        margin-left: 20vw;
+        font-size: 4vw;
+        padding: 0.3vw;
+        cursor: pointer;
+    }
+    .user-icon{
+        color: rgb(0, 132, 255);
+        margin-left: 2vw;
+    }
+    .down-icon{
+        color: rgb(0, 132, 255);
+        font-size: 2vw;
+    }
+    .dropdown{
+        position: fixed;
+        background-color: rgb(255, 255, 255);
+        top: 3.5vw;
+        left: 30vw;
+        width: 50vw;
+        box-shadow: 0 10px 8px 0 rgba(0, 0, 0, 0.2), 0 10px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 2px;
+        padding: 0;
+        text-align: center;
+        z-index: 10;
+        display: none;
+    }
+    .dropdown a.dropdown-link{
+        display: block;
+        padding: 2vw 3vw;
+        font-family: 'iransans';
+        font-size: 3.2vw;
+        text-decoration: none;
+        width: 160px;
+        text-align: right;
+        color: var(--textcolor);
+    }
+    .dropdown a.dropdown-link:hover{
+        background-color: rgb(224, 224, 224);
+    }
+    .dropdown .acount-link{
+        position: relative;
+        margin: 0;
+        height: 20vw;
+    }
+    .dropdown .acount-link .picture-pad{
+        background-color: rgb(206, 206, 206);
+        position: absolute;
+        top: 15px;
+        right: 8px;
+        margin: 0;
+        color: white;
+        font-size: 4vw;
+        padding: 0.5vw 2vw 0 2vw;
+        border-radius: 50%;
+    }
+    .dropdown .acount-link h1.uname{
+        color: var(--textcolor);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 2.5vw;
+        text-decoration: none;
+        border: none;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+    .dropdown .acount-link h1.enter-panel{
+        color: var(--textcolor);
+        font-family: 'iransans';
+        color: blue;
+        font-size: 2.5vw;
+        text-decoration: none;
+        border: none;
+        position: absolute;
+        top: 30px;
+        left: 2vw;
+    }
+    .enter-icon{
+        color: blue;
+        margin-right: 2vw;
+    }
+    .dropdown .acount-link:hover{
+        background-color: rgb(224, 224, 224);
+    }
+    .dropdown .link-border{
+        background-color: rgb(216, 215, 215);
+        width: 70%;
+        height: 1px;
+        margin-right: 30px;
+    }
+    a.dropdown-link.logoutbtn{
+        color: rgb(252, 21, 21);
+    }
+    .dropdown .icon{
+        margin-left: 7px;
+        font-size: 14px;
+    }
+    /* ----------------------- footer ------------------- */
+    footer{
+        background-color: var(--shutter);
+        overflow: hidden;
+        width: 100%;
+        height: 35vw;
+        position: relative;
+        padding-top: 4vw;
+    }
+    footer ul{
+        margin-top: 1vw;
+        float: right;
+        width: 25%;
+        margin-right: 1vw;
+        list-style: none;
+        line-height: 3.5vw;
+        padding-right: 2vw;
+    }
+    footer ul li{
+        margin: 0.2vw 0;
+        padding: 0;
+    }
+    footer li a{
+        font-size: 2.5vw;
+        color: white;
+        text-decoration: none;
+        margin: 0;
+        padding: 0;
+    }
+    footer li a:hover{
+        text-decoration: underline;
+    }
+    footer li a i{
+        padding-left: 1vw;
+    }
+    footer form{
+        float: right;
+        height: 20vw;
+        width: 35%;
+        padding-right: 5%;
+        margin-left: 5%;
+        border-left: white 1px solid;
+        border-right: white 1px solid;
+    }
+    footer form h1{
+        color: white;
+        font-size: 3vw;
+        font-family: 'iransans';
+        margin-bottom: 2vw;
+        margin-top: 2vw;
+    }
+    footer form h1 i{
+        padding-left: 1vw;
+    }
+    footer form input[type=email]{
+        background-color: white;
+        width: 60%;
+        font-size: 2vw;
+        padding: 0.3vw 1vw;
+        border: lightgray 1px solid;
+        font-family: 'iransans';
+    }
+    footer form input[type=submit]{
+        background-color: var(--green);
+        font-size: 2vw;
+        padding: 0.3vw 1vw;
+        color: white;
+        border: var(--green) 1px solid;
+        font-family: 'iransans';
+        cursor: pointer;
+    }
+    footer form input[type=submit]:hover{
+        background-color: var(--hover);
+        border: var(--hover) 1px solid;
+    }
+    footer h1.phone{
+        color: white;
+        font-size: 2vw;
+    }
+    footer h1.email{
+        color: white;
+        font-size: 2vw;
+    }
+    footer h1.phone i,footer h1.email i{
+        color: orange;
+        padding-left: 1vw;
+        font-size: 3vw;
+    }
+    footer .links{
+        position: absolute;
+        left: 5vw;
+        bottom: 2vw;
+    }
+    footer .links img{
+        width: 4vw;
+        margin: 0 1vw;
+    }
+    footer h1.down-title{
+        color: white;
+        position: absolute;
+        bottom: 0;
+        left: 45%;
+        font-size: 2vw;
+    }      
+}

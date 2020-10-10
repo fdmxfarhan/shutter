@@ -1,0 +1,36 @@
+extends ../layout
+block styles
+    link(rel="stylesheet", href="/stylesheets/dashboard.css")
+    link(rel="stylesheet", href="/stylesheets/editprofile.css")
+
+block content
+    .dashboard
+        include user-layout
+        .dashboard-cont
+            .container
+                h1.acount-header ویرایش اطلاعات حساب کاربری
+                form.edit(action="/dashboard/edit-profile" method="POST")
+                    label(for="firstname") نام: 
+                    input.text-input(type="text" value="#{user.firstname}" name="firstname")
+                    br
+                    label(for="lastname") نام خانوادگی: 
+                    input.text-input(type="text" value="#{user.lastname}" name="lastname")
+                    br
+                    label(for="phone") شماره تلفن
+                    input.text-input(type="text" value="#{user.phone}" name="phone")
+                    br
+                    label(for="username") پست الکترونیکی: 
+                    input.text-input(type="text" value="#{user.username}" name="username")
+                    input.submit(type="submit" value="ثبت")
+                form.edit(action="/dashboard/edit-password" method="POST")
+                    label(for="oldPassword") کلمه عبور:
+                    input.text-input(type="password" name="oldPassword" placeholder="کلمه عبور فعلی ...")
+                    br
+                    label(for="password")
+                    input.text-input(type="password" name="password" placeholder="کلمه عبور جدید ...")
+                    br
+                    label(for="confPassword")
+                    input.text-input(type="password" name="confPassword" placeholder="تکرار کلمه عبور ...")
+                    input.submit(type="submit" value="ثبت")
+                
+    //- script(src="/javascripts/editprofile.js")

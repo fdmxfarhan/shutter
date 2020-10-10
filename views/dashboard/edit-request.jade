@@ -1,0 +1,48 @@
+extends ../layout
+block styles
+    link(rel="stylesheet", href="/stylesheets/dashboard.css")
+
+block content
+    .dashboard
+        include user-layout
+        .dashboard-cont
+            .container
+                h1.acount-header درخواست ترجمه #{translation.title}
+                .request-info
+                    .dashed-panel
+                        .item زبان مبداء: #{translation.baseLanguage}
+                        .item زبان مقصد: #{translation.destLanguage}
+                        .item ایمیل درخواست کننده: #{translation.username}
+                        .item تلفن درخواست کننده: #{translation.phone}
+                        .item توضیحات: #{translation.description}
+                        .item تعداد کلمات: #{translation.numberOfWords}
+                        //- .item تعداد صفحات: #{translation.numberOfPages}
+                        .item هزینه ترجمه: #{translation.price} ریال
+                    .textarea
+                        h1 متن ترجمه
+                        p= translation.text
+                a.download-link#accept(href=`/files/${translation.file}` download) 
+                    i.fa.fa-cloud-download
+                    | دانلود فایل ترجمه
+                a.button-dropdown(href="#accept") ویرایش اطلاعات
+                    i.fa.fa-chevron-down
+                .accept-request
+                    form(action="/dashboard/edit-request" method="POST")
+                        .right
+                            input.hidden(type="text" name="id" value=`${translation._id}`)
+                            i.fa.fa-pencil
+                            input.textinput(type="number" name="numberOfWords" placeholder="تعداد کلمات")
+                            br
+                            //- i.fa.fa-pencil
+                            //- input.textinput(type="number" name="numberOfPages" placeholder="تعداد صفحات")
+                            //- br
+                        .left
+                            i.fa.fa-money
+                            input.textinput(type="number" name="price" placeholder="هزینه ترجمه(ریال)")
+                            br
+                            i.fa.fa-money
+                            input.textinput(type="number" name="salary" placeholder="دستمزد مترجم")
+                            br
+                        input.submit(type="submit" value="ثبت تغییرات")
+                        br
+    script(src="/javascripts/dashboard.js")

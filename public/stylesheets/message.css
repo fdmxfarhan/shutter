@@ -1,0 +1,25 @@
+.errors{
+    margin-bottom: 2vw;
+}
+.dismiss{
+    background-color: rgba(253, 84, 42, 0.788);
+    color: white;
+    width: 86%;
+    padding: 8px 5%;
+    margin-bottom: 5px;
+    border-radius: 3px;
+    font-family: 'iransans';
+    font-size: 1.2vw;
+}
+.error-icon{
+    margin-left: 10px;
+}
+.success{
+    background-color: rgba(104, 255, 44, 0.788);
+    color: white;
+    width: 86%;
+    padding: 8px 5%;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    font-size: 20px;
+}

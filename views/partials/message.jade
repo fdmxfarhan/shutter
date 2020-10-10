@@ -1,0 +1,10 @@
+link(rel="stylesheet", href="/stylesheets/message.css")
+
+- if(typeof errors != 'undefined'){
+    - errors.forEach(function(errors){
+        .dismiss
+            i.fa.fa-exclamation-triangle.error-icon
+            | #{errors.msg}
+            
+    - });
+- }

@@ -1,0 +1,152 @@
+extends blog-layout
+
+block blog-content
+    .blog-content
+        -if(user && user.role!='user'){
+            .content-edit-area
+                a(href="/blog/remove?id=#{content._id}")
+                    i.fa.fa-times
+                a(href="/blog/edit?id=#{content._id}")
+                    i.fa.fa-edit
+        -}
+        h1.content-title= content.title
+        .date= content.date
+        .imgpad
+            img(src='/files/#{content.photo}')
+        -for(var i=0; i<content.content.length; i++){
+            -if(content.content[i].type == 'text'){
+                p.text
+                    -for(var j=0; j<content.content[i].text.length; j++){
+                        -if(content.content[i].text[j] == '['){
+                            -var linkName='', linkHref='';
+                            -j++;
+                            -while(content.content[i].text[j] != ']'){
+                                -linkName += content.content[i].text[j];
+                                -j++;
+                            -}
+                            -j++;
+                            -if(content.content[i].text[j] == '{'){
+                                -j++;
+                                -while(content.content[i].text[j] != '}'){
+                                    -linkHref += content.content[i].text[j];
+                                    -j++;
+                                -}
+                            -}
+                            a(href="#{linkHref}")= linkName
+                        -}
+                        -else if(content.content[i].text[j] != '\n')
+                            | #{content.content[i].text[j]}
+                        -else
+                            br
+                    -}
+                    -if(user && (user.role == 'admin' || user.role == 'contentor')){
+                        a.remove-part(href="/blog/remove-part?id=#{content._id}&index=#{i}")
+                            i.fa.fa-times
+                    -}
+            -} else if(content.content[i].type == 'image'){
+                .imgpad
+                    img(src='/files/#{content.content[i].photo}')
+                    -if(user && (user.role == 'admin' || user.role == 'contentor')){
+                        a.remove-part(href="/blog/remove-part?id=#{content._id}&index=#{i}")
+                            i.fa.fa-times
+                    -}
+            -} else if(content.content[i].type == 'title'){
+                h1.content-text-title= content.content[i].title
+                    -if(user && (user.role == 'admin' || user.role == 'contentor')){
+                        a.remove-part(href="/blog/remove-part?id=#{content._id}&index=#{i}")
+                            i.fa.fa-times
+                    -}
+            -}
+            
+        -}
+
+        -if(user && (user.role == 'admin' || user.role == 'contentor')){
+            .add-content-part
+                form.title.hidden(action="/blog/add-title" method="POST")
+                    input.hidden(type="text" name = "id" value="#{content._id}")
+                    input.textinput(type="text" name="title" placeholder="عنوان ...")
+                    input.submit(type="submit" value="ثبت")
+                form.paragraph.hidden(action="/blog/add-paragraph" method="POST")
+                    input.hidden(type="text" name = "id" value="#{content._id}")
+                    textarea(name="text" placeholder="پاراگراف ...")
+                    input.submit(type="submit" value="ثبت")
+                form.image.hidden(action="/upload/push-image" enctype="multipart/form-data" method="POST")
+                    input.hidden(type="text" name = "id" value="#{content._id}")
+                    .upload-area فایل خود را انتخاب کنید
+                        i.fa.fa-cloud-upload
+                        input.file(type="file" name="photo") 
+                    input.submit(type="submit" value="ثبت")
+                .links
+                    a.add-title-btn + افزودن عنوان 
+                    a.add-paragraph-btn + افزودن پاراگراف 
+                    a.add-image-btn + افزودن عکس 
+        -}
+        .bottom-content
+            .author  
+            .seen= content.view
+                i.fa.fa-eye  
+        .rate
+            a(href="/blog/star?rate=1&id=#{content._id}")
+                -if(content.star > 0)
+                    span.fa.fa-star.active#star1
+                -else
+                    span.fa.fa-star#star1
+            a(href="/blog/star?rate=2&id=#{content._id}")
+                -if(content.star > 1)
+                    span.fa.fa-star.active#star2
+                -else
+                    span.fa.fa-star#star2
+            a(href="/blog/star?rate=3&id=#{content._id}")
+                -if(content.star > 2)
+                    span.fa.fa-star.active#star3
+                -else
+                    span.fa.fa-star#star3
+            a(href="/blog/star?rate=4&id=#{content._id}")
+                -if(content.star > 3)
+                    span.fa.fa-star.active#star4
+                -else
+                    span.fa.fa-star#star4
+            a(href="/blog/star?rate=5&id=#{content._id}")
+                -if(content.star > 4)
+                    span.fa.fa-star.active#star5
+                -else
+                    span.fa.fa-star#star5
+block comments
+    .comments-area
+        h1.content-title افزودن دیدگاه
+        form(action="/blog/comment" method="POST")
+            input.hidden(type="text" name="id" value='#{content._id}')
+            -if(user){
+                .input-area
+                    i.fa.fa-envelope
+                    input(type="Email" name="Email" value=user.username requiered placeholder="پست الکترونیکی(E-mail)...")
+                .input-area
+                    i.fa.fa-user
+                    input(type="text" name="fullName" value=user.fullName requiered placeholder="نام و نام خانوادگی...")
+            -}
+            -else{
+                .input-area
+                    i.fa.fa-envelope
+                    input(type="Email" name="Email" placeholder="پست الکترونیکی(E-mail)...")
+                .input-area
+                    i.fa.fa-user
+                    input(type="text" name="fullName" placeholder="نام و نام خانوادگی...")
+            -}
+            .text-area
+                textarea(name="comment", cols="90", rows="20")
+            input.submit(type="submit" value="ارسال")
+        br
+        h1.content-title نظرات کاربران
+        -for(var i=0; i<content.comment.length; i++){
+            .comment-display
+                .content-head
+                    i.fa.fa-user
+                    h1= content.comment[i].fullName
+                p
+                    -for(var j=0; j<content.comment[i].comment.length;j++){
+                        -if(content.comment[i].comment[j] != '\n')
+                            | #{content.comment[i].comment[j]}
+                        -else
+                            br
+                    -}
+        -}

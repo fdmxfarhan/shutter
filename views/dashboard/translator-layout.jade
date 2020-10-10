@@ -1,0 +1,49 @@
+.sidebar#sidebar
+    .card
+        a(href="/dashboard")
+            .acount-link
+                .picture-pad
+                    i.fa.fa-user.acound-icon
+                h1.card-uname= user.username
+                h1.card-phone= user.phone
+        .link-border
+        a(href="#")
+            .wallet-pad
+                .wallet درآمد کسب شده من
+                .increase تعداد مقالات ترجمه شده: #{count}
+                .toranj #{income} ریال
+        .link-border
+        a.card-link.logoutbtn(href="/user/logout")
+            i.fa.fa-sign-out.card-icon
+            | خروج از حساب کاربری
+    .acount
+        h1.acount-header حساب کاربری
+        a.acount-link(href="/dashboard")
+            i.fa.fa-user.link-icon
+            | پروفایل من
+        .link-border
+        a.acount-link(href="/order/information")
+            i.fa.fa-plus.link-icon
+            | درخواست ترجمه
+        .link-border
+        a.acount-link(href="/")
+            i.fa.fa-shopping-cart.link-icon
+            | همه سفارش ها
+        .link-border
+        a.acount-link(href="/dashboard/payments")
+            i.fa.fa-credit-card.link-icon
+            | صورت حساب ها
+        .link-border
+        a.acount-link(href="/")
+            i.fa.fa-bell.link-icon
+            | گزارش تخلف
+        .link-border
+        a.acount-link(href="/")
+            i.fa.fa-comments.link-icon
+            | نظرات و پیشنهادات
+        .link-border
+
+.slide-modal#slide-modal
+.slide-toggle#slide-toggle
+    button.slide-toggler#slide-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+        i.fa.fa-list-ul

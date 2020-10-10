@@ -1,0 +1,97 @@
+extends ../layout
+block styles
+    link(rel="stylesheet", href="/stylesheets/t-register.css")
+
+block content
+    -var languagesFa = ['فارسی', 'انگلیسی', 'عربی', 'ترکی', 'استانبولی', 'روسی', 'چینی', 'هندی', 'اردو', 'آلمانی', 'فرانسوی', 'کوردی'];
+    .main-container
+        .sidebar-area
+            h1 مترجم عزیز
+            p در این صفحه با ثبت مشخصات آماده آزمون دهی خواهی شد. در ثبت اطلاعات حتما دقت کن تا دچار خطا نشی
+        .content-box
+            h1.title ثبت نام مترجمین
+            form.register(action="/user/translator-register" method="POST")
+                .input-area.float-right
+                    i.fa.fa-user
+                    input(type="text" name="firstName" placeholder="نام" value="#{typeof firstName != 'undefined'? firstName: ''}")
+                .input-area.float-right
+                    i.fa.fa-user-o
+                    input(type="text" name="lastName" placeholder="نام خانوادگی" value="#{typeof lastName != 'undefined'? lastName: ''}")
+                h2 زبان های مبداء مسلط برای ترجمه:
+                .languages-list#base-list
+                    -for(var i=0; i<languagesFa.length; i++){
+                        .list-item(id='LB#{languagesFa[i]}')= languagesFa[i]
+                    -}
+                -for(var i=0; i<languagesFa.length; i++)
+                    input.hidden(type="text" name='baseLangs[#{i}]' )
+                .selected-base-langs
+                    #add-base-lang + افزودن زبان
+                    -for(var i=0; i<languagesFa.length; i++){
+                        .lang(id='B#{languagesFa[i]}')= languagesFa[i]
+                            i.fa.fa-times(id='CB#{languagesFa[i]}')
+                    -}
+                h2 زبان های مقصد مسلط برای ترجمه:
+                -for(var i=0; i<languagesFa.length; i++)
+                    input.hidden(type="text" name='destLangs[#{i}]' )
+                .languages-list#dest-list
+                    -for(var i=0; i<languagesFa.length; i++){
+                        .list-item(id='LD#{languagesFa[i]}')= languagesFa[i]
+                    -}
+                -for(var i=0; i<languagesFa.length; i++)
+                    input.hidden(type="checkbox" name='SD#{languagesFa[i]}' id='SD#{languagesFa[i]}')
+                .selected-dest-langs
+                    #add-dest-lang + افزودن زبان
+                    -for(var i=0; i<languagesFa.length; i++){
+                        .lang(id='D#{languagesFa[i]}')= languagesFa[i]
+                            i.fa.fa-times(id='CD#{languagesFa[i]}')
+                    -}
+                .date-input
+                    label(for="day") تاریخ تولد: 
+                    input(type="number" name="day" placeholder="روز" value="#{typeof day != 'undefined'? day: ''}")
+                    label(for="month") / 
+                    input(type="number" name="month" placeholder="ماه" value="#{typeof month != 'undefined'? month: ''}")
+                    label(for="year") / 
+                    input(type="number" name="year" placeholder="سال" value="#{typeof year != 'undefined'? year: ''}")
+                .input-line
+                    .input-area.float-right
+                        i.fa.fa-key
+                        input(type="password" name="password" placeholder="رمز عبور") 
+                    .input-area.float-right
+                        i.fa.fa-key
+                        input(type="password" name="passwordconf" placeholder="تایید رمز عبور")
+                .input-line
+                    .input-area.float-right
+                        i.fa.fa-pencil
+                        input(type="text" name="passNumber" placeholder="شماره شناسنامه" value="#{typeof passNumber != 'undefined'? passNumber: ''}")
+                    .input-area.float-right
+                        i.fa.fa-user
+                        select(name="sex")
+                            option(value="آقا" )  آقا
+                            option(value="خانم") خانم
+                .input-line
+                    .input-area.float-right
+                        i.fa.fa-phone
+                        input(type="text" name="phone" placeholder="شماره تلفن" value="#{typeof phone != 'undefined'? phone: ''}")
+                    .input-area.float-right
+                        i.fa.fa-phone
+                        input(type="text" name="phoneback" placeholder="شماره تلفن اضطراری" value="#{typeof phoneback != 'undefined'? phoneback: ''}")
+                .input-line
+                    .input-area.float-right
+                        i.fa.fa-pencil
+                        input(type="text" name="creditNum" placeholder="شماره کارت بانک ملت" value="#{typeof creditNum != 'undefined'? creditNum:''}")
+                    .input-area.float-right
+                        i.fa.fa-user
+                        input(type="text" name="username" placeholder="پست الکترونیکی (Email)" value="#{typeof username != 'undefined'? username:''}")
+
+                input.submit(type="submit" value="ثبت")
+    -if(errors){
+        .errors-area
+            -for(var i=0; i<errors.length; i++){
+                .error(id='error#{i}')
+                    i.fa.fa-warning
+                    h1= errors[i].msg
+                    i.fa.fa-times.close-error
+                    .time-interval(id='time#{i}')
+            -}
+    -}
+    script(src="/javascripts/t-register.js")
