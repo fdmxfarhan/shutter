@@ -56,8 +56,14 @@ block content
                             | مشاهده همه ترجمه ها
             .bottom-cont
                 h1.acount-header درخواست های ترجمه
-                -if(!user.active){
-                    h1.red.center برای دریافت سفارش ابتدا باید در آزمون مربوط به زبان خود شرکت کنید.
+                -if(!user.confirmed){
+                    h1.red.error برای دریافت سفارش ابتدا باید در آزمون مربوط به زبان خود شرکت کنید.
+                    a.button-link(href="#") شرکت در آزمون
+                    br
+                -}else if(!user.applied){
+                    h1.red.error لطفا مستندات خواسته شده را با استفاده از لینک زیر ارسال نمایید.
+                    a.button-link(href="/dashboard/translator-documents") بارگزاری مدارک
+                    br
                 -}else{
                     table.requests
                         tr

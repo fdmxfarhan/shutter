@@ -7,6 +7,7 @@ const Translation = require('../models/Translation');
 const {ensureAuthenticated} = require('../config/auth');
 const mail = require('../config/mail');
 const makeID = require('../config/makeID');
+const { base } = require('../models/User');
 
 router.get('/register', function(req, res, next){
     if(req.user){
@@ -99,6 +100,11 @@ router.post('/information', ensureAuthenticated, function(req, res, next){
         newTranslation.save().then(translation =>{
             res.redirect(`/order/upload?id=${translation._id}`);
             mail(req.user.username, 'ثبت سفارش ترجمه', `با سلام \nسفارش شما به کد پیگیری ${code} در دست بررسی توسط اپراتور است و در اسرع وقت ایمیلی حاوی اطلاعات بیشتر، لینک پرداخت و موارد تکمیلی برایتان ارسال خواهد شد. پس از پرداخت، سفارش شما در اختیار مترجمان و در دستور کار قرار خواهد گرفت.\nبا آرزوی توفیق برای شما💙`);
+            User.find({role: 'admin'}, (err, admins) => {
+                for(var i=0; i<admins.length; i++){
+                    mail(admins[i].username, 'سفارش ترجمه جدید', `سفارش جدید به کد پیگیری ${code} به مشخصات زیر ثبت شد.\n\nزبان مبدا: ${baseLanguage}\nزبان مقصد: ${destLanguage}\nنام سفارش دهنده: ${req.user.username}\nزمان پیشنهادی: ${time}`);
+                }
+            })
         }).catch(err => console.log(err));
     }
 

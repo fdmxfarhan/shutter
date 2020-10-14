@@ -952,7 +952,80 @@
         outline: none;
         background-color: chocolate;
     }
-    
+    h1.red.error{
+        font-family: 'iransans';
+        font-size: 1.6vw;
+        padding: 0 1vw;
+        text-align: center;
+    }
+    a.button-link{
+        font-family: 'iransans';
+        font-size: 1.4vw;
+        text-decoration: none;
+        color: white;
+        background-color: var(--shutter);
+        display: block;
+        width: fit-content;
+        margin: 1vw auto;
+        padding: 0.3vw 1.5vw;
+        border-radius: 1vw;
+    }
+    a.button-link:hover{
+        background-color: chocolate;
+    }
+    .half-part{
+        border-radius: 1vw;
+        border: var(--shutter) 2px dashed;
+        padding: 1vw;
+        width: 40%;
+        margin-right: 3%;
+        margin-top: 2vw;
+        margin-bottom: 2vw;
+        height: 15vw;
+        float: right;
+        text-align: center;
+    }
+    .half-part h1.title{
+        font-family: 'iransans';
+        font-size: 1.7vw;
+        color: var(--shutter);
+    }
+    .half-part a{
+        text-decoration: none;
+        font-family: 'iransans';
+        font-size: 1.3vw;
+        color: white;
+        background-color: var(--shutter);
+        padding: 0.3vw 1vw;
+        border-radius: 1vw;
+    }
+    .half-part a i{padding-left: 1vw;}
+    .half-part a:hover{background-color: chocolate;}
+    .half-part form{
+        display: block;
+        margin-top: 2vw;
+    }
+    .half-part form input{
+        display: block;
+        margin-top: 1vw;
+        text-align: center;
+    }
+    .half-part form input.submit{
+        background-color: var(--shutter);
+        font-family: 'iransans';
+        font-size: 1.4vw;
+        color: white;
+        border: none;
+        padding: 0.3vw 2vw;
+        border-radius: 1vw;
+        cursor: pointer;
+    }
+    .half-part form input.submit:hover{background-color: chocolate;}
+    i.done{
+        font-size: 3vw;
+        margin-top: 2vw;
+    }
+
 
 
     /* Flag |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
@@ -1256,6 +1329,8 @@
         height: 0.8vw;
         border-radius: 50%;
     }
+
+    
 
     
 }
@@ -2431,10 +2506,81 @@
         outline: none;
         background-color: chocolate;
     }
-    
+    h1.red.error{
+        font-family: 'iransans';
+        font-size: 3.3vw;
+        padding: 0 3vw;
+        text-align: center;
+    }
+    a.button-link{
+        font-family: 'iransans';
+        font-size: 3.2vw;
+        text-decoration: none;
+        color: white;
+        background-color: var(--shutter);
+        display: block;
+        width: fit-content;
+        margin: 3vw auto;
+        padding: 1vw 3vw;
+        border-radius: 2.5vw;
+    }
+    a.button-link:hover{
+        background-color: chocolate;
+    }
 
 
-
+    .half-part{
+        border-radius: 3vw;
+        border: var(--shutter) 2px dashed;
+        padding: 3vw;
+        width: 86%;
+        margin-right: 3%;
+        margin-top: 2vw;
+        margin-bottom: 2vw;
+        height: 35vw;
+        float: right;
+        text-align: center;
+    }
+    .half-part h1.title{
+        font-family: 'iransans';
+        font-size: 3.7vw;
+        color: var(--shutter);
+    }
+    .half-part a{
+        text-decoration: none;
+        font-family: 'iransans';
+        font-size: 3.3vw;
+        color: white;
+        background-color: var(--shutter);
+        padding: 1vw 3vw;
+        border-radius: 3vw;
+    }
+    .half-part a i{padding-left: 1vw;}
+    .half-part a:hover{background-color: chocolate;}
+    .half-part form{
+        display: block;
+        margin-top: 4vw;
+    }
+    .half-part form input{
+        display: block;
+        margin-top: 3vw;
+        text-align: center;
+    }
+    .half-part form input.submit{
+        background-color: var(--shutter);
+        font-family: 'iransans';
+        font-size: 3.4vw;
+        color: white;
+        border: none;
+        padding: 0.5vw 5vw;
+        border-radius: 3vw;
+        cursor: pointer;
+    }
+    .half-part form input.submit:hover{background-color: chocolate;}
+    i.done{
+        font-size: 5vw;
+        margin-top: 4vw;
+    }
 }
 .inline{
     display: inline;

@@ -6,6 +6,7 @@ const multer = require('multer');
 const Translation = require('../models/Translation');
 const {ensureAuthenticated} = require('../config/auth');
 const Content = require('../models/Content');
+const User = require('../models/User');
 router.use(bodyparser.urlencoded({extended: true}));
 const mail = require('../config/mail');
 
@@ -14,7 +15,7 @@ var storage = multer.diskStorage({
         cb(null, 'public/files')
     },
     filename: function (req, file, cb) {
-        cb(null, file.originalname)
+        cb(null, file.originalname + Date.now().toString())
     }
 });
 
@@ -72,6 +73,35 @@ router.post('/push-image',ensureAuthenticated , upload.single('photo'), (req, re
                 if(err) console.log(err)
             });
         });
+    }
+});
+
+
+router.post('/translator/agreement',ensureAuthenticated , upload.single('myFile'), (req, res, next)=>{
+    const fileName = req.file.originalname;
+    const agreement = {uploaded: true, file: fileName};
+    if(req.user.idCard && req.user.idCard.uploaded){
+        User.updateMany({username: req.user.username}, {$set: {agreement: agreement, applied: true}}).then(doc => {
+            res.redirect('/dashboard/translator-documents');
+        }).catch(err => {if(err) console.log(err)});
+    }else{
+        User.updateMany({username: req.user.username}, {$set: {agreement: agreement}}).then(doc => {
+            res.redirect('/dashboard/translator-documents');
+        }).catch(err => {if(err) console.log(err)});
+    }
+});
+
+router.post('/translator/idCard',ensureAuthenticated , upload.single('myFile'), (req, res, next)=>{
+    const fileName = req.file.originalname;
+    const idCard = {uploaded: true, file: fileName};
+    if(req.user.agreement && req.user.agreement.uploaded){
+        User.updateMany({username: req.user.username}, {$set: {idCard: idCard, applied: true}}).then(doc => {
+            res.redirect('/dashboard/translator-documents');
+        }).catch(err => {if(err) console.log(err)});
+    }else{
+        User.updateMany({username: req.user.username}, {$set: {idCard: idCard}}).then(doc => {
+            res.redirect('/dashboard/translator-documents');
+        }).catch(err => {if(err) console.log(err)});
     }
 });
 

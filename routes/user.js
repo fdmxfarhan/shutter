@@ -122,7 +122,7 @@ router.post('/translator-register', (req, res, next) => {
                 });
             }else {
                 const code = 'M' + makeID(4);
-                const newUser = new User({active: false, fullname, firstname: firstName, lastname: lastName, username, phone, password, baseLangs, destLangs, day, month, year, passNumber, sex, phoneback, creditNum, role: 'translator', code});
+                const newUser = new User({active: false, fullname, firstname: firstName, lastname: lastName, username, phone, password, baseLangs, destLangs, day, month, year, passNumber, sex, phoneback, creditNum, role: 'translator', code, agreement: {uploaded: false, file: ''}, idCard: {uploaded: false, file: ''}});
                 bcrypt.genSalt(10, (err, salt) => bcrypt.hash(newUser.password, salt, (err, hash) => {
                     if(err) throw err;
                     newUser.password = hash;

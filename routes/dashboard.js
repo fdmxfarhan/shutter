@@ -370,7 +370,13 @@ router.post('/ticket/add', ensureAuthenticated, (req, res, next) => {
     var readBy = [{username: username}];
     const newTicket = new Ticket({email, fullname, username, phone, text, subject, readBy});
     newTicket.save().then(ticket => {
-        res.redirect('/dashboard/ticket')
+        res.redirect('/dashboard/ticket');
+        mail(username, 'تیکت شما ثبت شد', 'تیکت شما با موفقیت ثبت شد و در انتظار پاسخ است.')
+        User.find({role: 'admin'}, (err, admins) => {
+            for(var i=0; i<admins.length; i++){
+                mail(admins[i].username, 'تیکت جدید', `تیکت جدید توسط ${req.user.fullname} با نام کاربری ${username} با محتوای زیر ثبت شد.\n${text}`);
+            }
+        });
     }).catch(err => console.log(err));
 
 });
@@ -407,8 +413,15 @@ router.post('/ticket/answer', ensureAuthenticated, (req, res, next)=>{
         else              answers = [];
         var date = new Date(Date.now());
         answers.push({fullname, email, date, text, seen: false, username: req.user.username});
-        Ticket.updateMany({_id: id}, {$set: {answers}}, (err, ticket)=>{
+        Ticket.updateMany({_id: id}, {$set: {answers}}, (err, doc)=>{
             res.redirect(`/dashboard/ticket/show?id=${id}`);
+            if(req.user.role != 'admin'){
+                User.find({role: 'admin'}, (err, admins) => {
+                    for(var i=0; i<admins.length; i++){
+                        mail(admins[i].username, 'پاسخ تیکت', `تیکت با عنوان ${ticket.subject} توسط ${req.user.fullname} پاسخ داده شد.\n\n${text}`);
+                    }
+                });
+            }
         });
     });
 });
@@ -494,7 +507,7 @@ router.get('/remove-offcode', ensureAuthenticated, (req, res, next) => {
             res.redirect('/dashboard/offcode');
         })
     }
-})
+});
 
 router.get('/pre-factor', ensureAuthenticated, (req, res, next) =>{
     Payment.findById(req.query.id, (err, payment) =>{
@@ -503,6 +516,46 @@ router.get('/pre-factor', ensureAuthenticated, (req, res, next) =>{
             payment
         });
     })
+});
+
+router.get('/translators', ensureAuthenticated, (req, res, next) =>{
+    if(req.user.role == 'admin'){
+        User.find({role: 'translator'}, (err, translators) =>{
+            res.render('./dashboard/translators', {
+                user: req.user,
+                translators
+            });
+        });
+    }
+});
+
+router.get('/translators-disactive', ensureAuthenticated, (req, res, next) => {
+    if(req.user.role == 'admin'){
+        User.updateMany({_id: req.query.id}, {$set: {confirmed: false}}).then(doc => {
+            res.redirect('/dashboard/translators');
+        }).catch(err => {if(err) console.log(err)});
+    }
+});
+
+router.get('/translators-active', ensureAuthenticated, (req, res, next) => {
+    if(req.user.role == 'admin'){
+        User.updateMany({_id: req.query.id}, {$set: {confirmed: true}}).then(doc => {
+            res.redirect('/dashboard/translators');
+        }).catch(err => {if(err) console.log(err);});
+    }
+});
+
+router.get('/translator-documents', ensureAuthenticated, (req, res, nex) => {
+    if(req.user.role == 'translator'){
+        if(req.user.applied){
+            res.redirect('/dashboard');
+        }else{
+            res.render('./dashboard/translator-documents', {
+                user: req.user
+            });
+        }
+    }
 })
+
 
 module.exports = router;

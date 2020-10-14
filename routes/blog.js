@@ -121,16 +121,20 @@ router.get('/star', function(req, res, next){
 
 router.post('/comment', (req, res, next)=>{
     var newComment = req.body;
-    newComment.date = Date.now();
-    Content.findById(newComment.id, (err, content)=>{
-        if(err) console.log(err);
-        content.comment.push(newComment);
-        Content.updateMany({_id: content._id}, {$set: {comment: content.comment}}).then(doc =>{
-            res.redirect(`/blog/content?id=${content._id}`);
-        }).catch(err=>{
+    if(!newComment.Email || !newComment.fullName)
+        res.send('موارد خواسته شده را کامل کنید.')
+    else{
+        newComment.date = Date.now();
+        Content.findById(newComment.id, (err, content)=>{
             if(err) console.log(err);
+            content.comment.push(newComment);
+            Content.updateMany({_id: content._id}, {$set: {comment: content.comment}}).then(doc =>{
+                res.redirect(`/blog/content?id=${content._id}`);
+            }).catch(err=>{
+                if(err) console.log(err);
+            });
         });
-    });
+    }
 });
 
 router.post('/add-paragraph', (req, res, next)=>{

@@ -1,0 +1,38 @@
+extends ../layout
+block styles
+    link(rel="stylesheet", href="/stylesheets/dashboard.css")
+
+block content
+    .dashboard
+        include user-layout
+        .dashboard-cont
+            .container
+                h1.acount-header مترجمان
+                table.users
+                    tr
+                        th نام و نام خانوادگی
+                        th ایمیل
+                        th شماره تماس
+                        th کد مترجمی
+                        th وضعیت
+                        th عملیات
+                    - for(var i=0 ; i<translators.length ; i++){
+                        tr
+                            -if(translators[i].sex == 'آقا')
+                                td= translators[i].sex + 'ی ' + translators[i].fullname
+                            -else
+                                td= translators[i].sex + ' ' + translators[i].fullname
+                            td= translators[i].username
+                            td= translators[i].phone
+                            td= translators[i].code
+                            td
+                                - if(translators[i].confirmed)
+                                    .green فعال
+                                - else
+                                    .red غیر فعال
+                            td  
+                                - if(translators[i].confirmed)
+                                    a(href="/dashboard/translators-disactive?id=#{translators[i]._id}") غیر فعال سازی
+                                - else
+                                    a(href="/dashboard/translators-active?id=#{translators[i]._id}") فعال سازی
+                    - }

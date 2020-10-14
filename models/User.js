@@ -53,7 +53,13 @@ const userSchema = new mongoose.Schema({
   code:{
     type: String,
     required: false
-  }
+  },
+  applied: {
+    type: Boolean,
+    default: false
+  },
+  agreement: Object,
+  idCard: Object
 });
 
 const User = mongoose.model('User', userSchema);

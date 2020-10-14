@@ -1,0 +1,35 @@
+extends ../layout
+block styles
+    link(rel="stylesheet", href="/stylesheets/dashboard.css")
+
+block content
+    .dashboard
+        include user-layout
+        .dashboard-cont
+            .container
+                h1.acount-header بارگزاری مستندات
+                .half-part
+                    h1.title بارگزاری قرارداد همکاری
+                    a.download(href="/files/agreement.pdf" download)
+                        i.fa.fa-cloud-download
+                        | دانلود فایل قرارداد
+                    -if(user.agreement && user.agreement.uploaded){
+                        br
+                        .green
+                            i.fa.fa-check.done
+                    -} else{
+                        form(action="/upload/translator/agreement" enctype="multipart/form-data"  method="POST")
+                            input.file(type="file" name="myFile")
+                            input.submit(type="submit" value="ارسال") 
+                    -}
+                .half-part
+                    h1.title بارگزاری کارت ملی
+                    -if(user.idCard && user.idCard.uploaded){
+                        br
+                        .green
+                            i.fa.fa-check.done
+                    -} else{
+                        form(action="/upload/translator/idCard" enctype="multipart/form-data"  method="POST")
+                            input.file(type="file" name="myFile")
+                            input.submit(type="submit" value="ارسال") 
+                    -}
