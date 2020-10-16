@@ -13,15 +13,34 @@ block content
                     a.download(href="/files/agreement.pdf" download)
                         i.fa.fa-cloud-download
                         | دانلود فایل قرارداد
-                    -if(user.agreement && user.agreement.uploaded){
-                        br
+                    h1.page بارگزاری صفحه اول
+                    -if(user.agreement && user.agreement.uploaded1){
                         .green
                             i.fa.fa-check.done
                     -} else{
-                        form(action="/upload/translator/agreement" enctype="multipart/form-data"  method="POST")
+                        form(action="/upload/translator/agreement1" enctype="multipart/form-data"  method="POST")
                             input.file(type="file" name="myFile")
                             input.submit(type="submit" value="ارسال") 
                     -}
+                    h1.page بارگزاری صفحه دوم
+                    -if(user.agreement && user.agreement.uploaded2){
+                        .green
+                            i.fa.fa-check.done
+                    -} else{
+                        form(action="/upload/translator/agreement2" enctype="multipart/form-data"  method="POST")
+                            input.file(type="file" name="myFile")
+                            input.submit(type="submit" value="ارسال") 
+                    -}
+                    h1.page بارگزاری صفحه سوم
+                    -if(user.agreement && user.agreement.uploaded3){
+                        .green
+                            i.fa.fa-check.done
+                    -} else{
+                        form(action="/upload/translator/agreement3" enctype="multipart/form-data"  method="POST")
+                            input.file(type="file" name="myFile")
+                            input.submit(type="submit" value="ارسال") 
+                    -}
+                    
                 .half-part
                     h1.title بارگزاری کارت ملی
                     -if(user.idCard && user.idCard.uploaded){

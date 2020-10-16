@@ -546,14 +546,14 @@ router.get('/translators-active', ensureAuthenticated, (req, res, next) => {
 });
 
 router.get('/translator-documents', ensureAuthenticated, (req, res, nex) => {
-    if(req.user.role == 'translator'){
-        if(req.user.applied){
+    if(req.user.agreement && req.user.idCard && req.user.agreement.uploaded1 && req.user.agreement.uploaded2 && req.user.agreement.uploaded3 && req.user.idCard.uploaded){
+        User.updateMany({_id: req.user._id}, {$set: {applied: true}}).then(doc => {
             res.redirect('/dashboard');
-        }else{
-            res.render('./dashboard/translator-documents', {
-                user: req.user
-            });
-        }
+        }).catch(err => {if(err) console.log(err)});
+    }else{
+        res.render('./dashboard/translator-documents', {
+            user: req.user
+        });
     }
 })
 

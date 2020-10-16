@@ -981,7 +981,7 @@
         margin-right: 3%;
         margin-top: 2vw;
         margin-bottom: 2vw;
-        height: 15vw;
+        height: 30vw;
         float: right;
         text-align: center;
     }
@@ -1002,13 +1002,20 @@
     .half-part a i{padding-left: 1vw;}
     .half-part a:hover{background-color: chocolate;}
     .half-part form{
-        display: block;
-        margin-top: 2vw;
+        /* display: block; */
+        /* margin-top: 2vw; */
     }
     .half-part form input{
-        display: block;
-        margin-top: 1vw;
+        /* display: block; */
+        /* margin-top: 1vw; */
         text-align: center;
+    }
+    .half-part h1.page{
+        font-family: 'iransans';
+        font-size: 1.3vw;
+        margin: 0;
+        margin-top: 2vw;
+        color: chocolate;
     }
     .half-part form input.submit{
         background-color: var(--shutter);
@@ -1016,14 +1023,14 @@
         font-size: 1.4vw;
         color: white;
         border: none;
-        padding: 0.3vw 2vw;
+        padding: 0vw 2vw;
         border-radius: 1vw;
         cursor: pointer;
     }
     .half-part form input.submit:hover{background-color: chocolate;}
     i.done{
-        font-size: 3vw;
-        margin-top: 2vw;
+        font-size: 2vw;
+        /* margin-top: 2vw; */
     }
 
 
@@ -2537,7 +2544,7 @@
         margin-right: 3%;
         margin-top: 2vw;
         margin-bottom: 2vw;
-        height: 35vw;
+        height: 80vw;
         float: right;
         text-align: center;
     }
@@ -2558,11 +2565,18 @@
     .half-part a i{padding-left: 1vw;}
     .half-part a:hover{background-color: chocolate;}
     .half-part form{
-        display: block;
-        margin-top: 4vw;
+        /* display: block; */
+        /* margin-top: 4vw; */
+    }
+    .half-part h1.page{
+        font-family: 'iransans';
+        font-size: 3.3vw;
+        margin: 0;
+        margin-top: 2vw;
+        color: chocolate;
     }
     .half-part form input{
-        display: block;
+        /* display: block; */
         margin-top: 3vw;
         text-align: center;
     }
