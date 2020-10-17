@@ -1,0 +1,102 @@
+@media only screen and (min-width: 800px) {
+    .lightblue-background{
+        background-color: lightblue;
+        width: 80%;
+        margin: auto;
+        margin-top: 7vw;
+        padding: 1vw 2vw;
+        border-radius: 1vw;
+        box-shadow: 0.1vw 0.1vw 0.5vw 0.3vw rgba(0, 0, 0, 0.2);
+    }
+    .white-background{
+        background-color: white;
+        width: 80%;
+        margin: auto;
+        margin-top: 3vw;
+        margin-bottom: 3vw;
+        padding: 1vw 2vw;
+        border-radius: 1vw;
+        box-shadow: 0.1vw 0.1vw 0.5vw 0.3vw rgba(0, 0, 0, 0.2);
+    }
+    .lightblue-background h1{
+        font-family: 'iransans';
+        font-size: 1.5vw;
+    }
+    .shutter-title{
+        font-family: 'iransans';
+        font-size: 2vw;
+        font-weight: bold;
+        text-align: center;
+        color: rgb(37, 37, 37);
+    }
+    .inline{display: inline;}
+    .darkblue{color: darkblue;}
+    .green{color: green;}
+    .center{text-align: center;}
+    .red{color: red;}
+    .blue{color: blue;}
+    .orange{color: orange;}
+    .underlined{
+        width: fit-content;
+        border-bottom: var(--shutter) 1px solid;
+        margin: auto;
+    }
+    h1.title{
+        font-family: 'iransans';
+        font-size: 1.7vw;
+        color: var(--shutter);
+    }
+    .item{
+        padding: 0.3vw 1vw;
+        text-align: justify;
+        margin-top: 1vw;
+    }
+    .number{
+        color: chocolate;
+        font-weight: bold;
+    }
+    .item p{
+        font-family: 'iransans';
+        font-size: 1.3vw;
+    }
+    .padding-right{padding-right: 2vw;}
+    .bold{font-weight: bold;}
+    .left-align{text-align: left;padding-left: 2vw;}
+    form{
+        margin-top: 2vw;
+    }
+    form input.text-input{
+        border: none;
+        border-bottom: black 2px dotted;
+        font-family: 'iransans';
+        font-size: 1.1vw;
+        text-align: center;
+        background-color: white;
+        color: var(--shutter);
+        margin: 0 0.5vw;
+        width: fit-content;
+    }
+    form input.submit{
+        font-family: 'iransans';
+        font-size: 1.5vw;
+        color: white;
+        margin-top: 2vw;
+        background-color: var(--shutter);
+        border: none;
+        border-radius: 1vw;
+        padding: 0.2vw 2vw;
+        transition-duration: 1s;
+        cursor: pointer;
+    }
+    form input.submit:focus{outline: none;}
+    form input.submit:hover{
+        background-color: chocolate;
+        padding: 0.2vw 3vw;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+
+
+}
+

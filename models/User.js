@@ -59,7 +59,11 @@ const userSchema = new mongoose.Schema({
     default: false
   },
   agreement: Object,
-  idCard: Object
+  idCard: Object,
+  firstEnter: {
+    type: Boolean,
+    default: true
+  },
 });
 
 const User = mongoose.model('User', userSchema);

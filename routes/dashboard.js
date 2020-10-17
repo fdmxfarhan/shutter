@@ -88,25 +88,29 @@ router.get('/', ensureAuthenticated, function(req, res, next){
         });
     }
     else if(req.user.role === 'translator'){
-        Translation.find({}, (err, translations) => {
-            if(err) throw err;
-            var income = 0;
-            var count = 0;
-            for(var i=0; i<translations.length; i++){
-                if(translations[i].translator == req.user.username){
-                    if(translations[i].status == 'ترجمه شده'){
-                        count++;
-                        income += translations[i].price;
+        if(req.user.firstEnter){
+            res.render('agreement', {user: req.user});
+        }else{
+            Translation.find({}, (err, translations) => {
+                if(err) throw err;
+                var income = 0;
+                var count = 0;
+                for(var i=0; i<translations.length; i++){
+                    if(translations[i].translator == req.user.username){
+                        if(translations[i].status == 'ترجمه شده'){
+                            count++;
+                            income += translations[i].price;
+                        }
                     }
                 }
-            }
-            res.render('./dashboard/translator-dashboard', {
-                user: req.user,
-                translations,
-                count,
-                income
+                res.render('./dashboard/translator-dashboard', {
+                    user: req.user,
+                    translations,
+                    count,
+                    income
+                });
             });
-        });
+        }
     }
     else if(req.user.role === 'contentor'){
         Content.find({author: req.user.username}, (err, contents)=>{
@@ -557,5 +561,18 @@ router.get('/translator-documents', ensureAuthenticated, (req, res, nex) => {
     }
 })
 
+router.get('/see-docs', ensureAuthenticated, (req, res, next) => {
+    if(req.user.role == 'translator') {
+        res.render('./dashboard/see-docs', {
+            user: req.user
+        });
+    }
+});
+
+router.post('/agreement', ensureAuthenticated, (req, res, next) =>{
+    User.updateMany({_id: req.user._id}, {$set: {firstEnter: false}}).then(doc => {
+        res.redirect('/dashboard?login=true');
+    }).catch(err => {if(err) console.log(err)});
+});
 
 module.exports = router;

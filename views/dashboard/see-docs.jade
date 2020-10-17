@@ -1,0 +1,21 @@
+extends ../layout
+block styles
+    link(rel="stylesheet", href="/stylesheets/dashboard.css")
+
+block content
+    .dashboard
+        include user-layout
+        .dashboard-cont
+            .container
+                h1.acount-header مستندات
+                h1.center.shutter-blue تصویر کارت ملی
+                .center
+                    img.image-size(src="/files/#{user.idCard.file}")
+                h1.center.shutter-blue تصویر قرارداد همکاری
+                .center
+                    img.image-size(src="/files/#{user.agreement.file1}")
+                .center
+                    img.image-size(src="/files/#{user.agreement.file2}")
+                .center
+                    img.image-size(src="/files/#{user.agreement.file3}")
+                
