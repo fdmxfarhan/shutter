@@ -29,13 +29,6 @@
         text-align: center;
         color: rgb(37, 37, 37);
     }
-    .inline{display: inline;}
-    .darkblue{color: darkblue;}
-    .green{color: green;}
-    .center{text-align: center;}
-    .red{color: red;}
-    .blue{color: blue;}
-    .orange{color: orange;}
     .underlined{
         width: fit-content;
         border-bottom: var(--shutter) 1px solid;
@@ -60,7 +53,6 @@
         font-size: 1.3vw;
     }
     .padding-right{padding-right: 2vw;}
-    .bold{font-weight: bold;}
     .left-align{text-align: left;padding-left: 2vw;}
     form{
         margin-top: 2vw;
@@ -88,7 +80,6 @@
         transition-duration: 1s;
         cursor: pointer;
     }
-    form input.submit:focus{outline: none;}
     form input.submit:hover{
         background-color: chocolate;
         padding: 0.2vw 3vw;
@@ -96,7 +87,103 @@
 }
 
 @media only screen and (max-width: 800px) {
-
+    .lightblue-background{
+        background-color: lightblue;
+        width: 90%;
+        margin: auto;
+        margin-top: 15vw;
+        padding: 2vw 3vw;
+        border-radius: 3vw;
+        box-shadow: 0.1vw 0.1vw 0.5vw 0.3vw rgba(0, 0, 0, 0.2);
+    }
+    .white-background{
+        background-color: white;
+        width: 90%;
+        margin: auto;
+        margin-top: 5vw;
+        margin-bottom: 3vw;
+        padding: 2vw 3vw;
+        border-radius: 3vw;
+        box-shadow: 0.1vw 0.1vw 0.5vw 0.3vw rgba(0, 0, 0, 0.2);
+    }
+    .lightblue-background h1{
+        font-family: 'iransans';
+        font-size: 3.5vw;
+        text-align: center;
+    }
+    .shutter-title{
+        font-family: 'iransans';
+        font-size: 4vw;
+        font-weight: bold;
+        text-align: center;
+        color: rgb(37, 37, 37);
+    }
+    .underlined{
+        width: fit-content;
+        border-bottom: var(--shutter) 1px solid;
+        margin: auto;
+    }
+    h1.title{
+        font-family: 'iransans';
+        font-size: 3.7vw;
+        color: var(--shutter);
+    }
+    .item{
+        padding: 0.3vw 1vw;
+        text-align: justify;
+        margin-top: 3vw;
+    }
+    .number{
+        color: chocolate;
+        font-weight: bold;
+    }
+    .item p{
+        font-family: 'iransans';
+        font-size: 3.3vw;
+    }
+    .padding-right{padding-right: 2vw;}
+    .left-align{text-align: left;padding-left: 2vw;}
+    form{
+        margin-top: 4vw;
+    }
+    form input.text-input{
+        border: none;
+        border-bottom: black 2px dotted;
+        font-family: 'iransans';
+        font-size: 3vw;
+        text-align: center;
+        background-color: white;
+        color: var(--shutter);
+        margin: 0 0.5vw;
+        width: fit-content;
+        width: 35%;
+        padding: 0 0.1vw
+    }
+    form input.submit{
+        font-family: 'iransans';
+        font-size: 3.5vw;
+        color: white;
+        margin-top: 2vw;
+        background-color: var(--shutter);
+        border: none;
+        border-radius: 3vw;
+        padding: 0.4vw 5vw;
+        transition-duration: 1s;
+        cursor: pointer;
+    }
+    form input.submit:hover{
+        background-color: chocolate;
+        padding: 0.4vw 7vw;
+    }
 
 }
 
+.inline{display: inline;}
+.darkblue{color: darkblue;}
+.green{color: green;}
+.center{text-align: center;}
+.red{color: red;}
+.blue{color: blue;}
+.orange{color: orange;}
+.bold{font-weight: bold;}
+form input.submit:focus{outline: none;}
